@@ -17,17 +17,18 @@ You have to choose Sapphire Variant (according to your stepper drivers configura
 
 #define SapphirePlusVariant *
 /** CHOOSE YOUR SAPPHIRE PLUS CONFIGURATION
-  * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988,    1 endstop
- * 10:  X tmc2208, Y tmc2208, E a4988, 	 dual 	Z a4988,  	2 endstops
- * 11:	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988,  	2 endstops
- * 2:  	X tmc2208, Y tmc2208, E a4988, 	 dual 	Z tmc2208, 	2 endstops
- * 3:  	X tmc2208, Y tmc2208, E tmc2208, single Z tmc2208, 	1 endstop
- * 4:  	X tmc2208, Y tmc2208, E tmc2208, dual 	Z tmc2208, 	1 endstop
- * 44: 	X tmc2225, Y tmc2225, E tmc2225, dual 	Z tmc2225, 	1 endstop
- * 5:  	X tmc2208, Y tmc2208, E tmc2208, dual 	Z tmc2208, 	2 endstops
- * 6:  	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988,  	2 endstops
- * 7:  	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2225, 	2 endstops
- * 8:  	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2209, 	1 endstop
+* 1:__X_tmc2208,_Y_tmc2208,_E_a4988,___single_Z_a4988,___1_endstop
+* 10:_X_tmc2208,_Y_tmc2208,_E_a4988,___dual_Z_a4988,_____2_endstops
+* 11:_X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_a4988,_____2_endstops
+* 2:__X_tmc2208,_Y_tmc2208,_E_a4988,___dual_Z_tmc2208,___2_endstops
+* 3:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_single_Z_tmc2208,_1_endstop
+* 4:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_tmc2208,___1_endstop
+* 44:_X_tmc2225,_Y_tmc2225,_E_tmc2225,_dual_Z_tmc2225,___1_endstop
+* 5:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_tmc2208,___2_endstops
+* 6:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_a4988,_____2_endstops
+* 7:__X_tmc2209,_Y_tmc2209,_E_tmc2209,_dual_Z_tmc2225,___2_endstops
+* 8:__X_tmc2209,_Y_tmc2209,_E_tmc2209,_dual_Z_tmc2209,___1_endstop
+ */
  
 #define SAPPHIRE_PLUS_TMC_UART           
 // 2209 UART addresses: 4x on PIN PA9 (X,Y,Z,Z2) 1x on PA10 (E0)
