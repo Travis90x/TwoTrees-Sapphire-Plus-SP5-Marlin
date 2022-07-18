@@ -28,7 +28,7 @@ You have to choose Sapphire Variant (according to your stepper drivers configura
 * 6:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_a4988,______2_endstops
 * 7:__X_tmc2209,_Y_tmc2209,_E_tmc2209,_dual_Z_tmc2225,___2_endstops
 * 8:__X_tmc2209,_Y_tmc2209,_E_tmc2209,_dual_Z_tmc2209,___1_endstop
- */
+
  
 #define SAPPHIRE_PLUS_TMC_UART           
 // 2209 UART addresses: 4x on PIN PA9 (X,Y,Z,Z2) 1x on PA10 (E0)
