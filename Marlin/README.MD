@@ -1,1 +1,1 @@
-Copy src folder in your IDE to compile correctly
+Copy "src" folder and subfolders in your IDE to compile correctly
