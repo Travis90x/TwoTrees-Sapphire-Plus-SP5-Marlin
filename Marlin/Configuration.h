@@ -49,9 +49,9 @@
 #define GRIDMAX_POINTS 5  //3,5,7,8,9..... points to test with mesh or bltouch, 5= 5x5, so 25 probe points
 
 #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
-  #define probe_x   0.0    //probe point of X respect to bltouch mount
-  #define probe_y -40   //probe point of Y respect to bltouch mount: negative for BLTOUCH on the MK8 fan side (visible from front)
-  #define probe_z  2.0    //probe point of Z respect to bltouch mount, usually 0
+  #define probe_x   0.0   //probe point of X respect to bltouch mount
+  #define probe_y -40.0   //probe point of Y respect to bltouch mount: negative for BLTOUCH on the MK8 fan side (visible from front)
+  #define probe_z   1.0   //probe point of Z respect to bltouch mount, usually 0
 
 #define SEPARATED_Z_MOTORS // to enable probe without Endstops and withous BLTouch for non synched Plus Z step motors
 #endif
@@ -2051,9 +2051,9 @@
 // Min software endstops constrain movement within minimum coordinate bounds
 #define MIN_SOFTWARE_ENDSTOPS  // verify: disable this line to set z offset below 0
 #if ENABLED(MIN_SOFTWARE_ENDSTOPS)
-  //#define MIN_SOFTWARE_ENDSTOP_X  //verify
+  #define MIN_SOFTWARE_ENDSTOP_X  
   #define MIN_SOFTWARE_ENDSTOP_Y
-  //#define MIN_SOFTWARE_ENDSTOP_Z  //verify
+  #define MIN_SOFTWARE_ENDSTOP_Z  //verify
   #define MIN_SOFTWARE_ENDSTOP_I
   #define MIN_SOFTWARE_ENDSTOP_J
   #define MIN_SOFTWARE_ENDSTOP_K
@@ -2066,7 +2066,7 @@
 #define MAX_SOFTWARE_ENDSTOPS
 #if ENABLED(MAX_SOFTWARE_ENDSTOPS)
   #define MAX_SOFTWARE_ENDSTOP_X
-  //#define MAX_SOFTWARE_ENDSTOP_Y  //verify
+  #define MAX_SOFTWARE_ENDSTOP_Y  //verify
   #define MAX_SOFTWARE_ENDSTOP_Z
   #define MAX_SOFTWARE_ENDSTOP_I
   #define MAX_SOFTWARE_ENDSTOP_J
