@@ -32,7 +32,6 @@
 //=== UI == Rotate Screen == BL_TOUCH == Mosfet == AutoFAN == Direct Drive ==
 //===========================================================================
 
-#define ITA_LANG  // comment for LCD english language
 
 //#define SAPPHIRE_PLUS_MKS_UI   // classic UI of TwoTrees - ATTENTION: copy assets folder into root sdcard
 
@@ -52,15 +51,18 @@
 #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
   #define probe_x   0.0    //probe point of X respect to bltouch mount
   #define probe_y -40   //probe point of Y respect to bltouch mount: negative for BLTOUCH on the MK8 fan side (visible from front)
-  #define probe_z  -2.0    //probe point of Z respect to bltouch mount, usually 0
+  #define probe_z  2.0    //probe point of Z respect to bltouch mount, usually 0
 
-#define SEPARATED_Z_MOTORS /// to enable bltouch probe for non synched Plus Z step motors
+#define SEPARATED_Z_MOTORS // to enable probe without Endstops and withous BLTouch for non synched Plus Z step motors
 #endif
 
-
+      #ifndef SAPPHIRE_PLUS_AUTOFAN
 //#define HE1ASHE0 // Mosfet HE0 burnt, use HE1
+      #endif
 
+      #ifndef HE1ASHE0
 //#define SAPPHIRE_PLUS_AUTOFAN           // Power ON fans on "Hot-End-1 pinout" PIN: PB0 when Hotend >= 50°
+      #endif
 
 #define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode (no browden)
 
@@ -72,7 +74,7 @@
 
 #define SapphirePlusVariant 5 // Read below
 
-/** CHOOSE YOUR SAPPHIRE PLUS CONFIG
+/** CHOOSE YOUR SAPPHIRE PLUS CONFIGURATION
   * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988,    1 endstop
  * 10:  X tmc2208, Y tmc2208, E a4988, 	 dual 	Z a4988,  	2 endstops
  * 11:	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988,  	2 endstops
@@ -205,8 +207,9 @@
 // Choose the name from boards.h that matches your setup
 
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_MKS_ROBIN_NANO //BOARD_MKS_ROBIN_NANO_V1_3_F4  
-  //#define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V1_3_F4 //BOARD_MKS_ROBIN_NANO_V2 per le ultime PLUS
+  #define MOTHERBOARD BOARD_MKS_ROBIN_NANO   // BOARD_MKS_ROBIN_NANO_V1.2
+  //#define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V1.3_F4 
+  //#define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V2        // for last 2022 versions
   #endif
 
 
@@ -2775,11 +2778,8 @@
  *
  * :{ 'en':'English', 'an':'Aragonese', 'bg':'Bulgarian', 'ca':'Catalan', 'cz':'Czech', 'da':'Danish', 'de':'German', 'el':'Greek (Greece)', 'el_CY':'Greek (Cyprus)', 'es':'Spanish', 'eu':'Basque-Euskera', 'fi':'Finnish', 'fr':'French', 'gl':'Galician', 'hr':'Croatian', 'hu':'Hungarian', 'it':'Italian', 'jp_kana':'Japanese', 'ko_KR':'Korean (South Korea)', 'nl':'Dutch', 'pl':'Polish', 'pt':'Portuguese', 'pt_br':'Portuguese (Brazilian)', 'ro':'Romanian', 'ru':'Russian', 'sk':'Slovak', 'sv':'Swedish', 'tr':'Turkish', 'uk':'Ukrainian', 'vi':'Vietnamese', 'zh_CN':'Chinese (Simplified)', 'zh_TW':'Chinese (Traditional)' }
  */
-#if ENABLED (ITA_LANG)
+
    #define LCD_LANGUAGE it
-#else
-  #define LCD_LANGUAGE en
-#endif  
 
 /**
  * LCD Character Set
