@@ -17,7 +17,7 @@ You have to choose Sapphire Variant (according to your stepper drivers configura
 
 #define SapphirePlusVariant *
 /** CHOOSE YOUR SAPPHIRE PLUS CONFIGURATION
-* 1:__X_tmc2208,_Y_tmc2208,_E_a4988,___single_Z_a4988,___1_endstop
+* 1:__X_tmc2208,_Y_tmc2208,_E_a4988,___single_Z_a4988,____1_endstop
 * 10:_X_tmc2208,_Y_tmc2208,_E_a4988,___dual_Z_a4988,_____2_endstops
 * 11:_X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_a4988,_____2_endstops
 * 2:__X_tmc2208,_Y_tmc2208,_E_a4988,___dual_Z_tmc2208,___2_endstops
@@ -25,7 +25,7 @@ You have to choose Sapphire Variant (according to your stepper drivers configura
 * 4:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_tmc2208,___1_endstop
 * 44:_X_tmc2225,_Y_tmc2225,_E_tmc2225,_dual_Z_tmc2225,___1_endstop
 * 5:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_tmc2208,___2_endstops
-* 6:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_a4988,_____2_endstops
+* 6:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_a4988,______2_endstops
 * 7:__X_tmc2209,_Y_tmc2209,_E_tmc2209,_dual_Z_tmc2225,___2_endstops
 * 8:__X_tmc2209,_Y_tmc2209,_E_tmc2209,_dual_Z_tmc2209,___1_endstop
  */
