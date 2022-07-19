@@ -21,6 +21,8 @@
  */
 #pragma once
 
+
+
 //#define CONFIG_EXAMPLES_DIR "Two Trees/Sapphire Plus/Sapphire Plus V2"
 
 /**
@@ -161,6 +163,7 @@
  * https://store.bq.com/en/heated-bed-kit-hephestos2
  */
 //#define HEPHESTOS2_HEATED_BED_KIT
+
 #if ENABLED(HEPHESTOS2_HEATED_BED_KIT)
   #undef TEMP_SENSOR_BED
   #define TEMP_SENSOR_BED 70
@@ -809,55 +812,22 @@
   //#define INVERT_Y2_VS_Y_DIR        // Y2 direction signal is the opposite of Y
   //#define Y_DUAL_ENDSTOPS           // Y2 has its own endstop
   #if ENABLED(Y_DUAL_ENDSTOPS)
-    #define Y2_USE_ENDSTOP    _YMAX_  // Y2 endstop board plug. Don't forget to enable USE_*_PLUG.
-    #define Y2_ENDSTOP_ADJUSTMENT  0  // Y2 offset relative to Y endstop
-  #endif
-#endif
-
-/**
- * Multi-Stepper / Multi-Endstop
- *
- * When X2_DRIVER_TYPE is defined, this indicates that the X and X2 motors work in tandem.
- * The following explanations for X also apply to Y and Z multi-stepper setups.
- * Endstop offsets may be changed by 'M666 X<offset> Y<offset> Z<offset>' and stored to EEPROM.
- *
- * - Enable INVERT_X2_VS_X_DIR if the X2 motor requires an opposite DIR signal from X.
- *
- * - Enable X_DUAL_ENDSTOPS if the second motor has its own endstop, with adjustable offset.
- *
- *   - Extra endstops are included in the output of 'M119'.
- *
- *   - Set X_DUAL_ENDSTOP_ADJUSTMENT to the known error in the X2 endstop.
- *     Applied to the X2 motor on 'G28' / 'G28 X'.
- *     Get the offset by homing X and measuring the error.
- *     Also set with 'M666 X<offset>' and stored to EEPROM with 'M500'.
- *
- *   - Use X2_USE_ENDSTOP to set the endstop plug by name. (_XMIN_, _XMAX_, _YMIN_, _YMAX_, _ZMIN_, _ZMAX_)
- */
-#if HAS_X2_STEPPER && DISABLED(DUAL_X_CARRIAGE)
-  //#define INVERT_X2_VS_X_DIR        // X2 direction signal is the opposite of X
-  //#define X_DUAL_ENDSTOPS           // X2 has its own endstop
-  #if ENABLED(X_DUAL_ENDSTOPS)
-    #define X2_USE_ENDSTOP    _XMAX_  // X2 endstop board plug. Don't forget to enable USE_*_PLUG.
-    #define X2_ENDSTOP_ADJUSTMENT  0  // X2 offset relative to X endstop
-  #endif
-#endif
-
-#if HAS_DUAL_Y_STEPPERS
-  //#define INVERT_Y2_VS_Y_DIR        // Y2 direction signal is the opposite of Y
-  //#define Y_DUAL_ENDSTOPS           // Y2 has its own endstop
-  #if ENABLED(Y_DUAL_ENDSTOPS)
     #define Y2_USE_ENDSTOP    _YMIN_  // YMAX already used by stock Endstop - Y2 endstop board plug. Don't forget to enable USE_*_PLUG.
     #define Y2_ENDSTOP_ADJUSTMENT  0  // Y2 offset relative to Y endstop
   #endif
 #endif
 
+
+
 //
 // Multi-Z steppers for Versions with 2x Z Endstop or 2x Z Endstop + BLTouch on PE6
 //
 
-#ifdef Z2_DRIVER_TYPE                 // Z2,Z3, Z4... declared only if exists related Stepper Driver
-  //#define INVERT_Z2_VS_Z_DIR        // Z2 direction signal is the opposite of Z
+// NUM_Z_STEPPERS is no longer needed: already defined in Conditionals_LCD.h 
+
+
+#ifdef Z2_DRIVER_TYPE                      // Z2,Z3, Z4... declared only if exists related Stepper Driver
+  //#define INVERT_Z2_VS_Z_DIR             // Z2 direction signal is the opposite of Z
 
   #if BOTH(SAPPHIRE_PLUS_BLTOUCH,BLTOUCH_WITH_ENDSTOPS) // BL Touch replaces endstops if these lack
       #define Z_MULTI_ENDSTOPS          // Other Z axes have their own endstops
@@ -923,6 +893,7 @@
 #endif
 
 #define QUICK_HOME                            // If G28 contains XY do a diagonal move first
+
 #define HOME_Y_BEFORE_X //Avoiding colision with endstops	- If G28 contains XY home Y before X	
 //#define HOME_Z_FIRST                        // Home Z first. Requires a Z-MIN endstop (not a probe).
 //#define CODEPENDENT_XY_HOMING               // If X/Y can't home without homing Y/X first
@@ -4443,10 +4414,11 @@
  * Adds capability to work with any adjustable current drivers.
  * Implemented as G34 because M915 is deprecated.
  */
-#if ENABLED (SEPARATED_Z_MOTORS)          //Adjustable current drivers are highly recommended to prevent damage
+#if ENABLED (SEPARATED_Z_MOTORS)          
     #if EITHER(Z_MULTI_ENDSTOPS,Z_STEPPER_AUTO_ALIGN)                  
     //cannot be used with Z_STEPPER_AUTO_ALIGN or with Z_MULTI_ENDSTOPS.
-    #else
+
+    #else //Adjustable current drivers are highly recommended to prevent damage
       #define MECHANICAL_GANTRY_CALIBRATION   // Only for motors controlled by DAC, SPI, DAC, TRINAMIC, PWM
     #endif
 #endif
