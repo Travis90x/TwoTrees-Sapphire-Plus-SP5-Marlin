@@ -1,4 +1,4 @@
-/**
+/** 
  * Marlin build for TwoTrees Sapphire Plus with stock hardware
  * Every changed settings could be find by searching for
  * 
@@ -26,6 +26,8 @@
  */
 #pragma once
 
+  
+
 //#define CONFIG_EXAMPLES_DIR "Two Trees/Sapphire Plus/Sapphire Plus V2"
 
 //===========================================================================
@@ -33,38 +35,43 @@
 //===========================================================================
 
 
+
+
 //#define SAPPHIRE_PLUS_MKS_UI   // classic UI of TwoTrees - ATTENTION: copy assets folder into root sdcard
 
 #if DISABLED(SAPPHIRE_PLUS_MKS_UI)
-  #define COLOR_BACKGROUND 0x0000 //LCD background color
+  #define COLOR_BACKGROUND 0x0009 //LCD background color
 #endif
 
 //#define ROTATED_SCREEN //to rotate screen of 180 degrees if all shown upset! on TFT
 
-#define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
-      #ifdef SAPPHIRE_PLUS_BLTOUCH
+//#define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
+      #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
 #define BLTOUCH_WITH_ENDSTOPS           // BL Touch doesn't replace ZMIN or ZMAX, but use PE6 (2nd runout filament sensor)
       #endif
 
-#define GRIDMAX_POINTS 5  //3,5,7,8,9..... points to test with mesh or bltouch, 5= 5x5, so 25 probe points
+
+
+#define GRIDMAX_POINTS 3  //3,5,7,8,9..... points to test with mesh or bltouch, 5= 5x5, so 25 probe points
+
+//#define SEPARATED_Z_MOTORS // to enable probe without Endstops and withous BLTouch for non synched Plus Z step motors
 
 #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
   #define probe_x   0.0   //probe point of X respect to bltouch mount
   #define probe_y -40.0   //probe point of Y respect to bltouch mount: negative for BLTOUCH on the MK8 fan side (visible from front)
   #define probe_z   1.0   //probe point of Z respect to bltouch mount, usually 0
 
-#define SEPARATED_Z_MOTORS // to enable probe without Endstops and withous BLTouch for non synched Plus Z step motors
 #endif
 
-      #ifndef SAPPHIRE_PLUS_AUTOFAN
+      #if DISABLED(SAPPHIRE_PLUS_AUTOFAN)
 //#define HE1ASHE0 // Mosfet HE0 burnt, use HE1
       #endif
 
-      #ifndef HE1ASHE0
+      #if DISABLED(HE1ASHE0)
 //#define SAPPHIRE_PLUS_AUTOFAN           // Power ON fans on "Hot-End-1 pinout" PIN: PB0 when Hotend >= 50°
       #endif
 
-#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode (no browden)
+//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode (no browden)
 
 
 //==========================================================================
@@ -72,7 +79,7 @@
 //==========================================================================
 
 
-#define SapphirePlusVariant 5 // Read below
+#define SapphirePlusVariant 11 // Read below
 
 /** CHOOSE YOUR SAPPHIRE PLUS CONFIGURATION
   * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988,    1 endstop
@@ -117,7 +124,7 @@
 
 
 
-//#define SAPPHIRE_PLUS_RUNOUT                // Filament Sensor
+#define SAPPHIRE_PLUS_RUNOUT                // Filament Sensor
   #if ENABLED (SAPPHIRE_PLUS_RUNOUT)
 //#define SAPPHIRE_PLUS_SMART_RUNOUT       // Filament Jam Detector
   #endif
@@ -265,69 +272,6 @@
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
 //#define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
 
-
-/**
- * Additional Axis Settings											 
- *
- * Define AXISn_ROTATES for all axes that rotate or pivot.
- * Rotational axis coordinates are expressed in degrees.										   
- *
- * AXISn_NAME defines the letter used to refer to the axis in (most) G-code commands.
- * By convention the names and roles are typically:
- *
- * Define the number of coordinated linear axes.
- * See https://github.com/DerAndere1/Marlin/wiki
- * Each linear axis gets its own stepper control and endstop:
- *
- *   Steppers: *_STEP_PIN, *_ENABLE_PIN, *_DIR_PIN, *_ENABLE_ON
- *   Endstops: *_STOP_PIN, USE_*MIN_PLUG, USE_*MAX_PLUG
- *       Axes: *_MIN_POS, *_MAX_POS, INVERT_*_DIR
- *    Planner: DEFAULT_AXIS_STEPS_PER_UNIT, DEFAULT_MAX_FEEDRATE
- *             DEFAULT_MAX_ACCELERATION, AXIS_RELATIVE_MODES,
- *             MICROSTEP_MODES, MANUAL_FEEDRATE
- *
- * :[3, 4, 5, 6]
- */
-//#define LINEAR_AXES 3
-/**
- * Axis codes for additional axes:
- * This defines the axis code that is used in G-code commands to
- * reference a specific axis.
- * 'A' for rotational axis parallel to X
- * 'B' for rotational axis parallel to Y
- * 'C' for rotational axis parallel to Z
- * 'U' for secondary linear axis parallel to X
- * 'V' for secondary linear axis parallel to Y
- * 'W' for secondary linear axis parallel to Z
- *
- * Regardless of these settings the axes are internally named I, J, K, U, V, W.
- * I (AXIS4), J (AXIS5), K (AXIS6).								   
- */
- 
-#ifdef I_DRIVER_TYPE
-  #define AXIS4_NAME 'A' // :['A', 'B', 'C', 'U', 'V', 'W']
-  #define AXIS4_ROTATES
-#endif
-#ifdef J_DRIVER_TYPE
-  #define AXIS5_NAME 'B' // :['B', 'C', 'U', 'V', 'W']
-  #define AXIS5_ROTATES
-#endif
-#ifdef K_DRIVER_TYPE
-  #define AXIS6_NAME 'C' // :['C', 'U', 'V', 'W']
-  #define AXIS6_ROTATES
-#endif
-#ifdef U_DRIVER_TYPE
-  #define AXIS7_NAME 'U' // :['U', 'V', 'W']
-  //#define AXIS7_ROTATES
-#endif
-#ifdef V_DRIVER_TYPE
-  #define AXIS8_NAME 'V' // :['V', 'W']
-  //#define AXIS8_ROTATES
-#endif
-#ifdef W_DRIVER_TYPE
-  #define AXIS9_NAME 'W' // :['W']
-  //#define AXIS9_ROTATES
-#endif
 
 // @section extruder
 
@@ -1129,125 +1073,6 @@
 // ends are controlled by parallel axes (Y, J). Joints are directly mapped to axes (no kinematics).
 //#define FOAMCUTTER_XYUV
 
-//===========================================================================
-//============================== Endstop Settings ===========================
-//===========================================================================
-
-// @section homing
-
-											 
-// Specify here all the endstop connectors that are connected to any endstop or probe.
-// Almost all printers will be using one per axis. Probes will use one or more of the
-// extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
-#define USE_XMIN_PLUG   //  
-//#define USE_YMIN_PLUG
-#define USE_ZMIN_PLUG     //Z1 Endstop (Left) on PA11
-//#define USE_IMIN_PLUG
-//#define USE_JMIN_PLUG
-//#define USE_KMIN_PLUG
-//#define USE_UMIN_PLUG
-//#define USE_VMIN_PLUG
-//#define USE_WMIN_PLUG
-//#define USE_XMAX_PLUG
-#define USE_YMAX_PLUG     //Y endstop is not MIN on Sapphire Plus
-
-#if DISABLED(SAPPHIRE_PLUS_BLTOUCH) // BL Touch replaces endstops
-    #ifdef Z2_DRIVER_TYPE          // 2x Z Stepper Drivers
-      #define USE_ZMAX_PLUG        // Z2 Endstop (Right) on PC4
-    #endif 
-#endif  
-//#define USE_UMAX_PLUG
-//#define USE_VMAX_PLUG
-//#define USE_WMAX_PLUG
-//#define USE_IMAX_PLUG
-//#define USE_JMAX_PLUG
-//#define USE_KMAX_PLUG
-
-
-// Enable pullup for all endstops to prevent a floating state
-#define ENDSTOPPULLUPS
-#if DISABLED(ENDSTOPPULLUPS)
-  // Disable ENDSTOPPULLUPS to set pullups individually
-  //#define ENDSTOPPULLUP_XMIN
-  //#define ENDSTOPPULLUP_YMIN
-  //#define ENDSTOPPULLUP_ZMIN
-  //#define ENDSTOPPULLUP_IMIN
-  //#define ENDSTOPPULLUP_JMIN
-  //#define ENDSTOPPULLUP_KMIN
-  //#define ENDSTOPPULLUP_UMIN
-  //#define ENDSTOPPULLUP_VMIN
-  //#define ENDSTOPPULLUP_WMIN
-  //#define ENDSTOPPULLUP_XMAX
-  //#define ENDSTOPPULLUP_YMAX
-  //#define ENDSTOPPULLUP_ZMAX
-  //#define ENDSTOPPULLUP_IMAX
-  //#define ENDSTOPPULLUP_JMAX
-  //#define ENDSTOPPULLUP_KMAX
-  //#define ENDSTOPPULLUP_UMAX
-  //#define ENDSTOPPULLUP_VMAX
-  //#define ENDSTOPPULLUP_WMAX
-  //#define ENDSTOPPULLUP_ZMIN_PROBE
-#endif
-
-// Enable pulldown for all endstops to prevent a floating state
-//#define ENDSTOPPULLDOWNS
-#if DISABLED(ENDSTOPPULLDOWNS)
-  // Disable ENDSTOPPULLDOWNS to set pulldowns individually
-  //#define ENDSTOPPULLDOWN_XMIN
-  //#define ENDSTOPPULLDOWN_YMIN
-  //#define ENDSTOPPULLDOWN_ZMIN
-  //#define ENDSTOPPULLDOWN_IMIN
-  //#define ENDSTOPPULLDOWN_JMIN
-  //#define ENDSTOPPULLDOWN_KMIN
-  //#define ENDSTOPPULLDOWN_UMIN
-  //#define ENDSTOPPULLDOWN_VMIN
-  //#define ENDSTOPPULLDOWN_WMIN
-  //#define ENDSTOPPULLDOWN_XMAX
-  //#define ENDSTOPPULLDOWN_YMAX
-  //#define ENDSTOPPULLDOWN_ZMAX
-  //#define ENDSTOPPULLDOWN_IMAX
-  //#define ENDSTOPPULLDOWN_JMAX
-  //#define ENDSTOPPULLDOWN_KMAX
-  //#define ENDSTOPPULLDOWN_UMAX
-  //#define ENDSTOPPULLDOWN_VMAX
-  //#define ENDSTOPPULLDOWN_WMAX
-  //#define ENDSTOPPULLDOWN_ZMIN_PROBE
-#endif
-
-// Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
-#define X_MIN_ENDSTOP_INVERTING true  // ENDSTOP X - Set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-
-#if ENABLED(SAPPHIRE_PLUS_BLTOUCH) && DISABLED(BLTOUCH_WITH_ENDSTOPS)
-    #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#else
-    #define Z_MIN_ENDSTOP_INVERTING true   
-#endif
-
-#define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define K_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define U_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define V_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define W_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-
-#define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING true  // ENDSTOP Y - Set to true to invert the logic of the endstop.
-
-#if DISABLED(SAPPHIRE_PLUS_BLTOUCH)
-    #define Z_MAX_ENDSTOP_INVERTING false // NO BL Touch, but endstop
-#else
-    #define Z_MAX_ENDSTOP_INVERTING true   
-#endif
-
-#define I_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define J_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define K_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define U_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define V_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define W_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
-
 
  /**
  * Stepper Drivers
@@ -1319,8 +1144,8 @@
 	#else
 		#define Z2_DRIVER_TYPE TMC2208_STANDALONE // 
 	#endif
-#elif SapphirePlusVariant == 6 or SapphirePlusVariant == 10 or SapphirePlusVariant == 11
-		#define Z2_DRIVER_TYPE A4988  // 
+#elif SapphirePlusVariant == 6 or SapphirePlusVariant == 10 or SapphirePlusVariant == 11 //
+		#define Z2_DRIVER_TYPE A4988  //
 #endif 
 
 
@@ -1394,7 +1219,195 @@
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
-#define ENDSTOP_INTERRUPTS_FEATURE
+#define ENDSTOP_INTERRUPTS_FEATURE  //verify
+
+
+/**
+ * Additional Axis Settings											 
+ *
+ * Define AXISn_ROTATES for all axes that rotate or pivot.
+ * Rotational axis coordinates are expressed in degrees.										   
+ *
+ * AXISn_NAME defines the letter used to refer to the axis in (most) G-code commands.
+ * By convention the names and roles are typically:
+ *
+ * Define the number of coordinated linear axes.
+ * See https://github.com/DerAndere1/Marlin/wiki
+ * Each linear axis gets its own stepper control and endstop:
+ *
+ *   Steppers: *_STEP_PIN, *_ENABLE_PIN, *_DIR_PIN, *_ENABLE_ON
+ *   Endstops: *_STOP_PIN, USE_*MIN_PLUG, USE_*MAX_PLUG
+ *       Axes: *_MIN_POS, *_MAX_POS, INVERT_*_DIR
+ *    Planner: DEFAULT_AXIS_STEPS_PER_UNIT, DEFAULT_MAX_FEEDRATE
+ *             DEFAULT_MAX_ACCELERATION, AXIS_RELATIVE_MODES,
+ *             MICROSTEP_MODES, MANUAL_FEEDRATE
+ *
+ * :[3, 4, 5, 6]
+ */
+
+//#define LINEAR_AXES 3
+
+
+/**
+ * Axis codes for additional axes:
+ * This defines the axis code that is used in G-code commands to
+ * reference a specific axis.
+ * 'A' for rotational axis parallel to X
+ * 'B' for rotational axis parallel to Y
+ * 'C' for rotational axis parallel to Z
+ * 'U' for secondary linear axis parallel to X
+ * 'V' for secondary linear axis parallel to Y
+ * 'W' for secondary linear axis parallel to Z
+ *
+ * Regardless of these settings the axes are internally named I, J, K, U, V, W.
+ * I (AXIS4), J (AXIS5), K (AXIS6).								   
+ */
+ 
+
+ 
+#ifdef I_DRIVER_TYPE
+  #define AXIS4_NAME 'A' // :['A', 'B', 'C', 'U', 'V', 'W']
+  #define AXIS4_ROTATES
+#endif
+#ifdef J_DRIVER_TYPE
+  #define AXIS5_NAME 'B' // :['B', 'C', 'U', 'V', 'W']
+  #define AXIS5_ROTATES
+#endif
+#ifdef K_DRIVER_TYPE
+  #define AXIS6_NAME 'C' // :['C', 'U', 'V', 'W']
+  #define AXIS6_ROTATES
+#endif
+#ifdef U_DRIVER_TYPE
+  #define AXIS7_NAME 'U' // :['U', 'V', 'W']
+  //#define AXIS7_ROTATES
+#endif
+#ifdef V_DRIVER_TYPE
+  #define AXIS8_NAME 'V' // :['V', 'W']
+  //#define AXIS8_ROTATES
+#endif
+#ifdef W_DRIVER_TYPE
+  #define AXIS9_NAME 'W' // :['W']
+  //#define AXIS9_ROTATES
+#endif
+
+
+//===========================================================================
+//============================== Endstop Settings ===========================
+//===========================================================================
+
+// @section homing
+
+											 
+// Specify here all the endstop connectors that are connected to any endstop or probe.
+// Almost all printers will be using one per axis. Probes will use one or more of the
+// extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
+#define USE_XMIN_PLUG   //  
+//#define USE_YMIN_PLUG
+#define USE_ZMIN_PLUG     //Z1 Endstop (Left) on PA11
+//#define USE_IMIN_PLUG
+//#define USE_JMIN_PLUG
+//#define USE_KMIN_PLUG
+//#define USE_UMIN_PLUG
+//#define USE_VMIN_PLUG
+//#define USE_WMIN_PLUG
+//#define USE_XMAX_PLUG
+#define USE_YMAX_PLUG     //Y endstop is not MIN on Sapphire Plus
+
+//#if DISABLED(SAPPHIRE_PLUS_BLTOUCH) // BL Touch replaces endstops
+    #ifdef Z2_DRIVER_TYPE          // 2x Z Stepper Drivers
+      #define USE_ZMAX_PLUG        // Z2 Endstop (Right) on PC4
+    #endif 
+//#endif  
+//#define USE_UMAX_PLUG
+//#define USE_VMAX_PLUG
+//#define USE_WMAX_PLUG
+//#define USE_IMAX_PLUG
+//#define USE_JMAX_PLUG
+//#define USE_KMAX_PLUG
+
+
+// Enable pullup for all endstops to prevent a floating state
+#define ENDSTOPPULLUPS
+#if DISABLED(ENDSTOPPULLUPS)
+  // Disable ENDSTOPPULLUPS to set pullups individually
+  //#define ENDSTOPPULLUP_XMIN
+  //#define ENDSTOPPULLUP_YMIN
+  //#define ENDSTOPPULLUP_ZMIN
+  //#define ENDSTOPPULLUP_IMIN
+  //#define ENDSTOPPULLUP_JMIN
+  //#define ENDSTOPPULLUP_KMIN
+  //#define ENDSTOPPULLUP_UMIN
+  //#define ENDSTOPPULLUP_VMIN
+  //#define ENDSTOPPULLUP_WMIN
+  //#define ENDSTOPPULLUP_XMAX
+  //#define ENDSTOPPULLUP_YMAX
+  //#define ENDSTOPPULLUP_ZMAX
+  //#define ENDSTOPPULLUP_IMAX
+  //#define ENDSTOPPULLUP_JMAX
+  //#define ENDSTOPPULLUP_KMAX
+  //#define ENDSTOPPULLUP_UMAX
+  //#define ENDSTOPPULLUP_VMAX
+  //#define ENDSTOPPULLUP_WMAX
+  //#define ENDSTOPPULLUP_ZMIN_PROBE
+#endif
+
+// Enable pulldown for all endstops to prevent a floating state
+//#define ENDSTOPPULLDOWNS
+#if DISABLED(ENDSTOPPULLDOWNS)
+  // Disable ENDSTOPPULLDOWNS to set pulldowns individually
+  //#define ENDSTOPPULLDOWN_XMIN
+  //#define ENDSTOPPULLDOWN_YMIN
+  //#define ENDSTOPPULLDOWN_ZMIN
+  //#define ENDSTOPPULLDOWN_IMIN
+  //#define ENDSTOPPULLDOWN_JMIN
+  //#define ENDSTOPPULLDOWN_KMIN
+  //#define ENDSTOPPULLDOWN_UMIN
+  //#define ENDSTOPPULLDOWN_VMIN
+  //#define ENDSTOPPULLDOWN_WMIN
+  //#define ENDSTOPPULLDOWN_XMAX
+  //#define ENDSTOPPULLDOWN_YMAX
+  //#define ENDSTOPPULLDOWN_ZMAX
+  //#define ENDSTOPPULLDOWN_IMAX
+  //#define ENDSTOPPULLDOWN_JMAX
+  //#define ENDSTOPPULLDOWN_KMAX
+  //#define ENDSTOPPULLDOWN_UMAX
+  //#define ENDSTOPPULLDOWN_VMAX
+  //#define ENDSTOPPULLDOWN_WMAX
+  //#define ENDSTOPPULLDOWN_ZMIN_PROBE
+#endif
+
+// Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
+#define X_MIN_ENDSTOP_INVERTING true  // ENDSTOP X - Set to true to invert the logic of the endstop.
+#define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+
+#if ENABLED(SAPPHIRE_PLUS_BLTOUCH) && DISABLED(BLTOUCH_WITH_ENDSTOPS)
+    #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+    #define Z_MAX_ENDSTOP_INVERTING true  // NO BL Touch, but endstop switch
+#else
+    #define Z_MIN_ENDSTOP_INVERTING true   // endstop switch
+    #define Z_MAX_ENDSTOP_INVERTING true   // endstop switch
+#endif
+
+#define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define K_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define U_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define V_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define W_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+
+#define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define Y_MAX_ENDSTOP_INVERTING true  // ENDSTOP Y - Set to true to invert the logic of the endstop.
+
+
+
+#define I_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define J_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define K_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define U_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define V_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define W_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
+
 
 /**
  * Endstop Noise Threshold
@@ -1411,7 +1424,7 @@
 //#define ENDSTOP_NOISE_THRESHOLD 2
 
 // Check for stuck or disconnected endstops during homing moves.
-//#define DETECT_BROKEN_ENDSTOP
+//#define DETECT_BROKEN_ENDSTOP //Verify
 
 //=============================================================================
 //============================== Movement Settings ============================
@@ -1445,7 +1458,7 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 10, 70 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 150, 100 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1545,7 +1558,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#ifndef BLTOUCH_WITH_ENDSTOPS
+#if DISABLED(BLTOUCH_WITH_ENDSTOPS)
   #if ENABLED (SAPPHIRE_PLUS_BLTOUCH)
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define USE_PROBE_FOR_Z_HOMING
@@ -1570,7 +1583,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-#ifdef BLTOUCH_WITH_ENDSTOPS
+#if ENABLED(BLTOUCH_WITH_ENDSTOPS)
   #define Z_MIN_PROBE_PIN PE6 // Pin 32 is the RAMPS default  // BL Touch over 2nd Runout filament sensor
   //#define USE_PROBE_FOR_Z_HOMING  // commented because of endstops used for z probing
  #endif
@@ -1984,9 +1997,8 @@
  */
 //#define Z_IDLE_HEIGHT Z_HOME_POS
 
-#define Z_HOMING_HEIGHT  4        // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT  5        // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
-
 #define Z_AFTER_HOMING  10        // (mm) Height to move to after homing Z
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
@@ -2005,8 +2017,8 @@
 
 // The size of the print bed
 #if DISABLED (SAPPHIRE_PRO)
-  #define X_BED_SIZE 305
-  #define Y_BED_SIZE 305
+  #define X_BED_SIZE 300
+  #define Y_BED_SIZE 300
 #else
   #define X_BED_SIZE 225
   #define Y_BED_SIZE 225
@@ -2016,14 +2028,14 @@
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS -5    // Centre printable area on the bed
 #define Y_MIN_POS 0
-#define Z_MIN_POS -2
+#define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 
 #if ENABLED (SAPPHIRE_PRO)
   #define Z_MAX_POS TERN(SAPPHIRE_PLUS_BLTOUCH, 230, 235) // BLTouch needs clearance for homing
 #else
-  #define Z_MAX_POS TERN(SAPPHIRE_PLUS_BLTOUCH, 335, 340) // BLTouch needs clearance for homing
+  #define Z_MAX_POS TERN(SAPPHIRE_PLUS_BLTOUCH, 330, 330) // BLTouch needs clearance for homing
 #endif
 
 //#define I_MIN_POS 0
@@ -2437,7 +2449,7 @@
 #if SapphirePlusVariant == 44
 		#define HOMING_FEEDRATE_MM_M { (20*60), (20*60), (6*60) } // 
 #else							 
-		#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (15*60) }
+		#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (30*60) }
 #endif	  
 
 // Validate that endstops are triggered on homing moves
@@ -2610,7 +2622,7 @@
  #else							   
 		#define NOZZLE_PARK_XY_FEEDRATE 100   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
  #endif		
-  #define NOZZLE_PARK_Z_FEEDRATE    5   // (mm/s) Z axis feedrate (not used for delta printers)
+  #define NOZZLE_PARK_Z_FEEDRATE    10   // (mm/s) Z axis feedrate (not used for delta printers)
 #endif
 
 /**
