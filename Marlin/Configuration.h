@@ -117,7 +117,7 @@
 
 //#define SAPPHIRE_PLUS_HAS_WIFI          // ESP8266 per WIFI
 
-#define LINEAR_ADVANCE
+//#define LINEAR_ADVANCE  // Disable Stealthchop for TMC2208 Extruder in GCODE with "M569 S0 E"
 	#if ENABLED (LINEAR_ADVANCE)
 	#define K_VALUE 0.10
 	#endif
@@ -1158,13 +1158,13 @@
   #else
     #define E0_DRIVER_TYPE TMC2209_STANDALONE // 
   #endif
-#elif SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 // 
+#elif SapphirePlusVariant == 11 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 6  // 
 	#if ENABLED(SAPPHIRE_PLUS_TMC_UART)
 		#define E0_DRIVER_TYPE TMC2208 //      
 	#else
 		#define E0_DRIVER_TYPE TMC2208_STANDALONE // 
 	#endif
-#elif SapphirePlusVariant == 1 or SapphirePlusVariant == 10 or SapphirePlusVariant == 11 or SapphirePlusVariant == 6 //
+#elif SapphirePlusVariant == 1 or SapphirePlusVariant == 10 or SapphirePlusVariant == 2 //
 		#define E0_DRIVER_TYPE A4988 //
 #endif // 
 
@@ -1451,7 +1451,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 }  // verify 415 for BMG clone
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }  // 
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1803,7 +1803,7 @@
 #if SapphirePlusVariant == 44
 	#define Z_PROBE_FEEDRATE_FAST (2*60)
 #else
-	#define Z_PROBE_FEEDRATE_FAST (8*60)
+	#define Z_PROBE_FEEDRATE_FAST (4*60)
 #endif	 
 
 // Feedrate (mm/min) for the "accurate" probe of each point
@@ -1953,8 +1953,8 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR true
+#define INVERT_X_DIR true  // TMC2208/2009 for all axis
+#define INVERT_Y_DIR true  // TMC2208/2009 for all axis
 
 #if SapphirePlusVariant == 2 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 7 or SapphirePlusVariant == 8 // 															
 	#define INVERT_Z_DIR true
@@ -1971,7 +1971,7 @@
 // @section extruder
 
   // For direct drive extruder v9 set to true, for geared extruder set to false.
-#if SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 6 or SapphirePlusVariant == 7 or SapphirePlusVariant == 8 or SapphirePlusVariant == 11 // 															
+#if SapphirePlusVariant == 11 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 6 or SapphirePlusVariant == 7 or SapphirePlusVariant == 8 // 															
 		#define INVERT_E0_DIR true
 #else
 		#define INVERT_E0_DIR false
@@ -2026,7 +2026,7 @@
 //When adjust, adjust tramming too
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -5    // Centre printable area on the bed
+#define X_MIN_POS 0    // Centre printable area on the bed
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
@@ -2065,7 +2065,7 @@
 #if ENABLED(MIN_SOFTWARE_ENDSTOPS)
   #define MIN_SOFTWARE_ENDSTOP_X  
   #define MIN_SOFTWARE_ENDSTOP_Y
-  #define MIN_SOFTWARE_ENDSTOP_Z  //verify
+  #define MIN_SOFTWARE_ENDSTOP_Z  
   #define MIN_SOFTWARE_ENDSTOP_I
   #define MIN_SOFTWARE_ENDSTOP_J
   #define MIN_SOFTWARE_ENDSTOP_K
@@ -2078,7 +2078,7 @@
 #define MAX_SOFTWARE_ENDSTOPS
 #if ENABLED(MAX_SOFTWARE_ENDSTOPS)
   #define MAX_SOFTWARE_ENDSTOP_X
-  #define MAX_SOFTWARE_ENDSTOP_Y  //verify
+  #define MAX_SOFTWARE_ENDSTOP_Y  
   #define MAX_SOFTWARE_ENDSTOP_Z
   #define MAX_SOFTWARE_ENDSTOP_I
   #define MAX_SOFTWARE_ENDSTOP_J
@@ -2449,7 +2449,7 @@
 #if SapphirePlusVariant == 44
 		#define HOMING_FEEDRATE_MM_M { (20*60), (20*60), (6*60) } // 
 #else							 
-		#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (30*60) }
+		#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (15*60) }
 #endif	  
 
 // Validate that endstops are triggered on homing moves
@@ -2563,8 +2563,8 @@
 // Preheat Constants - Up to 6 are supported without changes
 //
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 190
-#define PREHEAT_1_TEMP_BED     55
+#define PREHEAT_1_TEMP_HOTEND 225
+#define PREHEAT_1_TEMP_BED     50
 #define PREHEAT_1_TEMP_CHAMBER 35
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
@@ -2614,9 +2614,9 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
+  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 50 }
   #define NOZZLE_PARK_MOVE          0   // Park motion: 0 = XY Move, 1 = X Only, 2 = Y Only, 3 = X before Y, 4 = Y before X
-  #define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance
+  #define NOZZLE_PARK_Z_RAISE_MIN   5   // (mm) Always raise Z by at least this distance
  #if SapphirePlusVariant == 44
      #define NOZZLE_PARK_XY_FEEDRATE 50   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
  #else							   
