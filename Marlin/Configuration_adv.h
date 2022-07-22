@@ -707,7 +707,7 @@
 
 // If you want endstops to stay on (by default) even when not homing
 // enable this option. Override at any time with M120, M121.
-//#define ENDSTOPS_ALWAYS_ON_DEFAULT  // default on Sapphire V2.1 - they just reset a new zero and the print continues
+#define ENDSTOPS_ALWAYS_ON_DEFAULT  // default on Sapphire V2.1 - they just reset a new zero and the print continues
 
 // @section extras
 
@@ -934,7 +934,7 @@
    *   - Disable LCD voltage options
    */
 
- /**
+  /**
    * Danger: Don't activate 5V mode unless attached to a 5V-tolerant controller!
    * V3.0 or 3.1: Set default mode to 5V mode at Marlin startup.
    * If disabled, OD mode is the hard-coded default on 3.0
@@ -3891,13 +3891,17 @@
      * More refined power control such as compesation for accell/decell will be addressed in future releases.
      *
      * M5 I clears inline mode and set power to 0, M5 sets the power output to 0 but leaves inline mode on.
+																   
      */
+								
 
+								   
     /**
      * Enable M3 commands for laser mode inline power planner syncing.
      * This feature enables any M3 S-value to be injected into the block buffers while in
      * CUTTER_MODE_CONTINUOUS. The option allows M3 laser power to be commited without waiting
      * for a planner syncronization
+																		
      */
     //#define LASER_POWER_SYNC
 
@@ -3907,9 +3911,54 @@
      * - Sets the entry power proportional to the entry speed over the nominal speed.
      * - Ramps the power up every N steps to approximate the speed trapezoid.
      * - Due to the limited power resolution this is only approximate.
+																															 
+																												  
      */
     //#define LASER_POWER_TRAP
 
+		 
+																				   
+																						
+																			   
+		 
+														
+
+		 
+																			  
+		 
+								
+
+								   
+																  
+															  
+								   
+
+											
+									
+			
+
+		 
+							 
+		
+																	
+																 
+		 
+										 
+
+		 
+																		   
+		
+																  
+													
+		 
+											 
+
+		 
+
+																												   
+																						   
+
+		  
 
     //
     // Laser I2C Ammeter (High precision INA226 low/high side module)
