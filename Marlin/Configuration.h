@@ -2,7 +2,7 @@
  * Marlin build for TwoTrees Sapphire Plus with stock hardware
  * Every changed settings could be find by searching for
  * 
- * Last changes 2022-07-18 02:22
+ * Last changes 2022-07-22 14:22
  *
  * Marlin 3D Printer Firmware
  * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
@@ -1173,6 +1173,7 @@
 
 #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
   #define TMC_BAUD_RATE                     19200 // Reduced to improve software serial reliability
+  
   #if DISABLED (SAPPHIRE_PLUS_TMC_UART_DIRECT)
     #define X_SERIAL_TX_PIN                   PA10   // Wifi TX
     #define X_SERIAL_RX_PIN                   PA10
@@ -1203,23 +1204,11 @@
     
   #endif
 #endif
-#if ENABLED(SAPPHIRE_PLUS_TMC_UART)
-#define X_SERIAL_TX_PIN                   PA9   // Wifi TX
-#define X_SERIAL_RX_PIN                   PA9
-#define Y_SERIAL_TX_PIN                   PA10  // Wifi RX
-#define Y_SERIAL_RX_PIN                   PA10
-#define Z_SERIAL_TX_PIN                   PC13  // WIFI IO0
-#define Z_SERIAL_RX_PIN                   PC13
-#define E0_SERIAL_TX_PIN                  PE5   // MAX31855 CS
-#define E0_SERIAL_RX_PIN                  PE5
-#define E1_SERIAL_TX_PIN                  PC7   // WIFI IO1
-#define E1_SERIAL_RX_PIN                  PC7
-#define TMC_BAUD_RATE                     19200 // Reduced to improve software serial reliability
-#endif
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
-#define ENDSTOP_INTERRUPTS_FEATURE  //verify
+
+#define ENDSTOP_INTERRUPTS_FEATURE  //verify  - Usefull with ENDSTOPS_ALWAYS_ON_DEFAULT
 
 
 /**
@@ -2037,7 +2026,6 @@
 #else
   #define Z_MAX_POS TERN(SAPPHIRE_PLUS_BLTOUCH, 330, 330) // BLTouch needs clearance for homing
 #endif
-
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -2063,9 +2051,9 @@
 // Min software endstops constrain movement within minimum coordinate bounds
 #define MIN_SOFTWARE_ENDSTOPS  // verify: disable this line to set z offset below 0
 #if ENABLED(MIN_SOFTWARE_ENDSTOPS)
-  #define MIN_SOFTWARE_ENDSTOP_X  
+  #define MIN_SOFTWARE_ENDSTOP_X
   #define MIN_SOFTWARE_ENDSTOP_Y
-  #define MIN_SOFTWARE_ENDSTOP_Z  
+  #define MIN_SOFTWARE_ENDSTOP_Z
   #define MIN_SOFTWARE_ENDSTOP_I
   #define MIN_SOFTWARE_ENDSTOP_J
   #define MIN_SOFTWARE_ENDSTOP_K
@@ -2078,7 +2066,7 @@
 #define MAX_SOFTWARE_ENDSTOPS
 #if ENABLED(MAX_SOFTWARE_ENDSTOPS)
   #define MAX_SOFTWARE_ENDSTOP_X
-  #define MAX_SOFTWARE_ENDSTOP_Y  
+  #define MAX_SOFTWARE_ENDSTOP_Y
   #define MAX_SOFTWARE_ENDSTOP_Z
   #define MAX_SOFTWARE_ENDSTOP_I
   #define MAX_SOFTWARE_ENDSTOP_J
@@ -2112,9 +2100,9 @@
     #define FILAMENT_RUNOUT_SENSOR
   #endif
 
-
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
+
   #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
   #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
@@ -2374,7 +2362,6 @@
   #define BED_TRAMMING_HEIGHT      0.0        // (mm) Z height of nozzle at leveling points
   #define BED_TRAMMING_Z_HOP       4.0        // (mm) Z height of nozzle between leveling points
   //#define BED_TRAMMING_INCLUDE_CENTER       // Move to the center after the last corner
-
   //#define BED_TRAMMING_USE_PROBE
   #if ENABLED(BED_TRAMMING_USE_PROBE)
     #define BED_TRAMMING_PROBE_TOLERANCE 0.1  // (mm)
@@ -2741,7 +2728,7 @@
  */
 #define PRINTCOUNTER
 #if ENABLED(PRINTCOUNTER)
-  #define PRINTCOUNTER_SAVE_INTERVAL 60 // (minutes) EEPROM save interval during print
+  #define PRINTCOUNTER_SAVE_INTERVAL 5 // (minutes) EEPROM save interval during print
 #endif
 
 /**
