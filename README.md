@@ -1,5 +1,5 @@
-# Marlin-Firmware-TwoTrees-Sapphire-Plus-SP5
-This is a non-offical project. 
+# TwoTrees Sapphire Plus SP5
+Marlin Firmware: this is a non-offical project. 
 This repo contains one preconfigured Marlin 2.1.x bugifix fimrware versions for 3D-Printer "TwoTrees Sapphire Plus or SP5".
 There are several different revisions of this printer, so you have to choose your Sapphire "Variant" in configuration.h file. 
 I will release compiled Firmware for main Versions of it.
