@@ -82,13 +82,12 @@ https://web.telegram.org/z/#-1201369506
 # Raspberry Pi Pico + ADXL345: Portable resonance measurement 
 https://klipper.discourse.group/t/raspberry-pi-pico-adxl345-portable-resonance-measurement/1757
 
-#Wiring_Pinout_and_Size
+# Wiring_Pinout_and_Size
 https://github.com/makerbase-mks/MKS-Robin-Nano-V1.X/wiki/Wiring_Pinout_and_Size
 https://github.com/makerbase-mks/MKS-Robin-Nano-V1.X/blob/master/hardware/MKS%20Robin%20Nano%20V1.2_004/MKS%20Robin%20Nano%20V1.2_004%20PIN.pdf
 
-#Compare other Printers
+# Compare with other Printers
 https://travis90x.altervista.org/stampanti-3d-boards-comparazione-2021/
-
 
 # Klipper
 
@@ -98,7 +97,6 @@ https://github.com/Klipper3d/klipper/blob/master/config/printer-twotrees-sapphir
 Installing Klipper on Sapphire Plus (SP-5)
 https://3dprintbeginner.com/how-to-install-klipper-on-sapphire-plus/
 https://makerme.blog/posts/installing-klipper-on-sapphire-plus/
-
 
 # Klipper with Armbian on Allwinner TVBOX T95 max / Tanix TX6
 
