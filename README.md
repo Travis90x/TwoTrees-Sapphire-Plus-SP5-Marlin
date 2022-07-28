@@ -76,8 +76,13 @@ https://docs.google.com/presentation/d/1-Ee2e8QgYi-yDCYDKD2s8ehqo0UsH6LD/edit#sl
 General TwoTrees SP-3 SP-5 Suggested Upgrades + Diamond needed parts
 https://docs.google.com/spreadsheets/d/1BW-cE3cIfOesapLvuGciVe0dl3kaHlzK0vwRGYZZXz4/edit#gid=152074595
 
-# Telegram Group
+# Social / Telegram Group ITA
 https://web.telegram.org/z/#-1201369506
+https://www.facebook.com/search/top?q=two%20trees%20sapphire%20plus%20italia
+
+# Social / Telegram Group Global
+https://web.telegram.org/z/#-1633907119
+https://www.facebook.com/groups/805993576250577
 
 # Raspberry Pi Pico + ADXL345: Portable resonance measurement 
 https://klipper.discourse.group/t/raspberry-pi-pico-adxl345-portable-resonance-measurement/1757
@@ -107,3 +112,8 @@ Others
 https://disk.yandex.ru/d/NdhF0c0iM0TnzQ/ArmbianTV/20211203?w=1
 https://github.com/awawa-dev/build/releases/tag/v2022.03.08
 https://forum.armbian.com/topic/16600-t95-allwinner-h616-armbian/
+
+
+# Vref calculator for A4988 and DRV8825
+
+http://atividademaker.com.br/calculando-vref
