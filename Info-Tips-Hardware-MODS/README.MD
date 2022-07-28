@@ -27,3 +27,6 @@ https://travis90x.altervista.org/stampanti-3d-boards-comparazione-2021/
 
 http://atividademaker.com.br/calculando-vref
 
+
+# Raspberry Pi Pico + ADXL345: Portable resonance measurement 
+https://klipper.discourse.group/t/raspberry-pi-pico-adxl345-portable-resonance-measurement/1757
