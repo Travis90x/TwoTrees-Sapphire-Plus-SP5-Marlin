@@ -62,3 +62,50 @@ if you use BL-Touch on PIN PE6 for bed leveling and two Z_Enstops for Homing.
 
 #define MOTHERBOARD BOARD_MKS_ROBIN_NANO // for V1.2
 otherwise BOARD_MKS_ROBIN_NANO_V1.3_F4 or BOARD_MKS_ROBIN_NANO_V2
+
+
+
+#The Diamond Mount by Laurienzu
+https://cults3d.com/en/3d-model/various/the-diamond-mount-direct-drive-hotend-mount-for-v6-nf-smart-dragon-dragonfly-zodiac-bmo-and-more-sapphire-pro-sp-3-plus-sp-5-printers-laurienzudesign-2
+
+https://github.com/laurienzu/Marlin/tree/Two-Trees-SP-3-SP-5
+
+The Diamond Mount Assembly Guide by Laurienzu
+https://docs.google.com/presentation/d/1-Ee2e8QgYi-yDCYDKD2s8ehqo0UsH6LD/edit#slide=id.p32
+
+General TwoTrees SP-3 SP-5 Suggested Upgrades + Diamond needed parts
+https://docs.google.com/spreadsheets/d/1BW-cE3cIfOesapLvuGciVe0dl3kaHlzK0vwRGYZZXz4/edit#gid=152074595
+
+#Telegram Group
+https://web.telegram.org/z/#-1201369506
+
+#Raspberry Pi Pico + ADXL345: Portable resonance measurement 
+https://klipper.discourse.group/t/raspberry-pi-pico-adxl345-portable-resonance-measurement/1757
+
+#Wiring_Pinout_and_Size
+https://github.com/makerbase-mks/MKS-Robin-Nano-V1.X/wiki/Wiring_Pinout_and_Size
+https://github.com/makerbase-mks/MKS-Robin-Nano-V1.X/blob/master/hardware/MKS%20Robin%20Nano%20V1.2_004/MKS%20Robin%20Nano%20V1.2_004%20PIN.pdf
+
+#Compare other Printers
+https://travis90x.altervista.org/stampanti-3d-boards-comparazione-2021/
+
+
+#Klipper
+
+Klipper printer-twotrees-sapphire-plus-sp-5-v1-2020.cfg
+https://github.com/Klipper3d/klipper/blob/master/config/printer-twotrees-sapphire-plus-sp-5-v1-2020.cfg
+
+Installing Klipper on Sapphire Plus (SP-5)
+https://3dprintbeginner.com/how-to-install-klipper-on-sapphire-plus/
+https://makerme.blog/posts/installing-klipper-on-sapphire-plus/
+
+
+# Klipper with Armbian on Allwinner TVBOX T95 max / Tanix TX6
+
+Ready2Go klippertv by Giuseppe di Resta
+https://gofile.io/d/apOP6X
+
+Others
+https://disk.yandex.ru/d/NdhF0c0iM0TnzQ/ArmbianTV/20211203?w=1
+https://github.com/awawa-dev/build/releases/tag/v2022.03.08
+https://forum.armbian.com/topic/16600-t95-allwinner-h616-armbian/
