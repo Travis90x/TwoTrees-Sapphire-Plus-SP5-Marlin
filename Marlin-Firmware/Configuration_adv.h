@@ -829,7 +829,7 @@
 
   #if BOTH(SAPPHIRE_PLUS_BLTOUCH,BLTOUCH_WITH_ENDSTOPS) // BL Touch replaces endstops if these lack
       #define Z_MULTI_ENDSTOPS          // Other Z axes have their own endstops
-  #elif SapphirePlusVariant == 10 or SapphirePlusVariant == 11 or SapphirePlusVariant == 2 or SapphirePlusVariant == 5 or SapphirePlusVariant == 6 or SapphirePlusVariant == 7
+  #elif z_endstop_qty > 1
       #define Z_MULTI_ENDSTOPS
   #endif
 
