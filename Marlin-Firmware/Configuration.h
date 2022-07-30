@@ -63,59 +63,90 @@
 
 #endif
 
+
+
+// ========================= AUTO FAN on HEATER 1 =========================
+#define SAPPHIRE_PLUS_AUTOFAN           // Power ON fans on "Hot-End-1 pinout" PIN: PB0 when Hotend >= 50°
+
+
+// ========================= HEATER 1 INSTEAD 0 =========================
       #if DISABLED(SAPPHIRE_PLUS_AUTOFAN)
 //#define HE1ASHE0 // Mosfet HE0 burnt, use HE1
       #endif
 
-      #if DISABLED(HE1ASHE0)
-//#define SAPPHIRE_PLUS_AUTOFAN           // Power ON fans on "Hot-End-1 pinout" PIN: PB0 when Hotend >= 50°
-      #endif
-
-//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode (no browden)
+// ========================= DIRECT DRIVE =========================
+#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode (no browden)
 
 
-//==========================================================================
-//== STEPPER DRIVERS == UART == WIFI == LINEAR_ADVANCE == FILAMENT SENSOR ==
-//==========================================================================
+//======================================================================================
+//== ENDSTOPS == STEPPER DRIVERS == UART == WIFI == LINEAR_ADVANCE == FILAMENT SENSOR ==
+//======================================================================================
 
+#define z_endstop_qty 2  //how many endstop on Z
 
+#define set_auto_conf  // to use SapphirePlusVariant instead manually 
+
+#ifdef set_auto_conf
 #define SapphirePlusVariant 11 // Read below
+#endif
 
 /** CHOOSE YOUR SAPPHIRE PLUS CONFIGURATION
-  * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988,    1 endstop
- * 10:  X tmc2208, Y tmc2208, E a4988, 	 dual 	Z a4988,  	2 endstops
- * 11:	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988,  	2 endstops
- * 2: 	X tmc2208, Y tmc2208, E a4988, 	 dual 	Z tmc2208, 	2 endstops
- * 3: 	X tmc2208, Y tmc2208, E tmc2208, single Z tmc2208, 	1 endstop
- * 4: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z tmc2208, 	1 endstop
- * 44: 	X tmc2225, Y tmc2225, E tmc2225, dual 	Z tmc2225, 	1 endstop
- * 5: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z tmc2208, 	2 endstops
- * 6: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988,  	2 endstops
- * 7: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2225, 	2 endstops
- * 8: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2209, 	1 endstop
+  * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988
+ * 10:  X tmc2208, Y tmc2208, E a4988, 	 dual 	Z a4988
+ * 11:	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988
+ * 2: 	X tmc2208, Y tmc2208, E a4988, 	 dual 	Z tmc2208
+ * 3: 	X tmc2208, Y tmc2208, E tmc2208, single Z tmc2208
+ * 4: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z tmc2208
+ * 44: 	X tmc2225, Y tmc2225, E tmc2225, dual 	Z tmc2225
+ * 5: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z tmc2208
+ * 6: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988
+ * 7: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2225
+ * 8: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2209
   */
 
 
-//#define SAPPHIRE_PLUS_TMC_UART           
-    // 2209 UART addresses: 4x on PIN PA9 (X,Y,Z,Z2) 1x on PA10 (E0)
+// comment #define set_auto_conf to set manually
+#if DISABLED(set_auto_conf)
+  #define X_DRIVER_TYPE TMC2209
+  #define Y_DRIVER_TYPE TMC2209
+  #define Z_DRIVER_TYPE TMC2209
+  #define Z2_DRIVER_TYPE TMC2209
+  #define E0_DRIVER_TYPE TMC2209
+#endif
 
-//#define SAPPHIRE_PLUS_TMC_UART_DIRECT   // UART 2208 single PIN for each DRIVER
+/** CHOOSE YOUR STEPPER DRIVER MANUALLY
+ * Use TMC2208 for TMC2225 drivers and TMC2209 for TMC2226 drivers.
+ *
+ * Options: A4988, A5984, DRV8825, LV8729, L6470, L6474, POWERSTEP01, TB6560,
+ * TB6600, TMC2100, TMC2130, TMC2160, TMC2208, TMC2209, TMC26X,TMC2660, TMC5130, TMC5160
+ * A4988 is assumed for unspecified drivers.
+*/
+
+// ======================= UART MODE ====================
+// Don't use suffix "STANDALONE" for TMC2XXX
+
+//#define SAPPHIRE_PLUS_TMC_UART          //  UART for addresses 2209: 4x on PIN PA9 (X,Y,Z,Z2) 1x on PA10 (E0)
+//#define SAPPHIRE_PLUS_TMC_UART_DIRECT   // UART for 2208 single PIN for each DRIVER
   
-/**	 
-*     X_SERIAL_TX_PIN                   PA9    
-*     X_SERIAL_RX_PIN                   PA9
-*     Y_SERIAL_TX_PIN                   PA10   
-*     Y_SERIAL_RX_PIN                   PA10
-*     Z_SERIAL_TX_PIN                   PC13  
-*     Z_SERIAL_RX_PIN                   PC13
-*     Z2_SERIAL_TX_PIN                  PC7    
-*     Z2_SERIAL_RX_PIN                  PC7    
-*     E0_SERIAL_TX_PIN                  PE5    
-*     E0_SERIAL_RX_PIN                  PE5
+/**  PIN Setup	 
+ *     X_SERIAL_TX_PIN                   PA9    
+ *     X_SERIAL_RX_PIN                   PA9
+ *     Y_SERIAL_TX_PIN                   PA10   
+ *     Y_SERIAL_RX_PIN                   PA10
+ *     Z_SERIAL_TX_PIN                   PC13  
+ *     Z_SERIAL_RX_PIN                   PC13
+ *     Z2_SERIAL_TX_PIN                  PC7    
+ *     Z2_SERIAL_RX_PIN                  PC7    
+ *     E0_SERIAL_TX_PIN                  PE5    
+ *     E0_SERIAL_RX_PIN                  PE5
 */
   
 
+// ======================== WIFI ========================
 //#define SAPPHIRE_PLUS_HAS_WIFI          // ESP8266 per WIFI
+
+
+// =================== LINEAR ADVANCE ===================
 
 //#define LINEAR_ADVANCE  // Disable Stealthchop for TMC2208 Extruder in GCODE with "M569 S0 E"
 	#if ENABLED (LINEAR_ADVANCE)
@@ -123,7 +154,7 @@
 	#endif
 
 
-
+// =================== FILAMENT RUNOUT ===================
 #define SAPPHIRE_PLUS_RUNOUT                // Filament Sensor
   #if ENABLED (SAPPHIRE_PLUS_RUNOUT)
 //#define SAPPHIRE_PLUS_SMART_RUNOUT       // Filament Jam Detector
@@ -1080,17 +1111,6 @@
  * These settings allow Marlin to tune stepper driver timing and enable advanced options for
  * stepper drivers that support them. You may also override timing options in Configuration_adv.h.
  *
- * A4988 is assumed for unspecified drivers.
- *
- * Use TMC2208/TMC2208_STANDALONE for TMC2225 drivers and TMC2209/TMC2209_STANDALONE for TMC2226 drivers.
- *
- * Options: A4988, A5984, DRV8825, LV8729, L6470, L6474, POWERSTEP01,
- *          TB6560, TB6600, TMC2100,
- *          TMC2130, TMC2130_STANDALONE, TMC2160, TMC2160_STANDALONE,
- *          TMC2208, TMC2208_STANDALONE, TMC2209, TMC2209_STANDALONE,
- *          TMC26X,  TMC26X_STANDALONE,  TMC2660, TMC2660_STANDALONE,
- *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
- * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
 
 
@@ -1128,7 +1148,7 @@
     #define  Z_DRIVER_TYPE TMC2208_STANDALONE // 
   #endif
 #elif SapphirePlusVariant == 1 or SapphirePlusVariant == 10 or SapphirePlusVariant == 11 or SapphirePlusVariant == 5 //
-    #define Z_DRIVER_TYPE A4988  // not necessary (A4988 is assumed for unspecified drivers)
+    #define Z_DRIVER_TYPE A4988
 #endif
  
 // DEFINE Z2
@@ -1942,25 +1962,38 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true  // TMC2208/2009 for all axis
-#define INVERT_Y_DIR true  // TMC2208/2009 for all axis
+#if X_DRIVER_TYPE == TMC2208 or X_DRIVER_TYPE == TMC2208_STANDALONE or X_DRIVER_TYPE == TMC2209 or X_DRIVER_TYPE == TMC2209_STANDALONE or X_DRIVER_TYPE == TMC2130 or X_DRIVER_TYPE == TMC2160 or X_DRIVER_TYPE == TMC26X or X_DRIVER_TYPE == TMC2660 or X_DRIVER_TYPE == TMC5130 or X_DRIVER_TYPE == TMC5160
+	#define INVERT_X_DIR true
+#else
+	#define INVERT_X_DIR false
+#endif
 
-#if SapphirePlusVariant == 2 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 7 or SapphirePlusVariant == 8 // 															
+#if Y_DRIVER_TYPE == TMC2208 or Y_DRIVER_TYPE == TMC2208_STANDALONE or Y_DRIVER_TYPE == TMC2209 or Y_DRIVER_TYPE == TMC2209_STANDALONE or Y_DRIVER_TYPE == TMC2130 or Y_DRIVER_TYPE == TMC2160 or Y_DRIVER_TYPE == TMC26X or Y_DRIVER_TYPE == TMC2660 or Y_DRIVER_TYPE == TMC5130 or Y_DRIVER_TYPE == TMC5160
+	#define INVERT_Y_DIR true
+#else
+	#define INVERT_Y_DIR false
+#endif
+
+#if Z_DRIVER_TYPE == TMC2208 or Z_DRIVER_TYPE == TMC2208_STANDALONE or Z_DRIVER_TYPE == TMC2209 or Z_DRIVER_TYPE == TMC2209_STANDALONE or Z_DRIVER_TYPE == TMC2130 or Z_DRIVER_TYPE == TMC2160 or Z_DRIVER_TYPE == TMC26X or Z_DRIVER_TYPE == TMC2660 or Z_DRIVER_TYPE == TMC5130 or Z_DRIVER_TYPE == TMC5160
 	#define INVERT_Z_DIR true
 #else
 	#define INVERT_Z_DIR false
 #endif
 
-#if SapphirePlusVariant == 2 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 7 or SapphirePlusVariant == 8// 															
-  #define INVERT_Z2_DIR true
-#elif SapphirePlusVariant == 6 or SapphirePlusVariant == 9 or SapphirePlusVariant == 11
-  #define INVERT_Z2_DIR false
+#ifdef Z2_DRIVER_TYPE
+  #if Z2_DRIVER_TYPE == TMC2208 or Z2_DRIVER_TYPE == TMC2208_STANDALONE or Z2_DRIVER_TYPE == TMC2209 or Z2_DRIVER_TYPE == Z2_DRIVER_TYPE or Z2_DRIVER_TYPE == TMC2130 or Z2_DRIVER_TYPE == TMC2160 or Z2_DRIVER_TYPE == TMC26X or Z2_DRIVER_TYPE == TMC2660 or Z2_DRIVER_TYPE == TMC5130 or Z2_DRIVER_TYPE == TMC5160
+   #define INVERT_Z2_DIR true
+  #else 
+    #ifdef Z2_DRIVER_TYPE
+      #define INVERT_Z2_DIR false
+    #endif
+  #endif
 #endif
 
 // @section extruder
 
   // For direct drive extruder v9 set to true, for geared extruder set to false.
-#if SapphirePlusVariant == 11 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 6 or SapphirePlusVariant == 7 or SapphirePlusVariant == 8 // 															
+#if E0_DRIVER_TYPE == TMC2208 or E0_DRIVER_TYPE == TMC2208_STANDALONE or E0_DRIVER_TYPE == TMC2209 or E0_DRIVER_TYPE == TMC2209_STANDALONE or E0_DRIVER_TYPE == TMC2130 or E0_DRIVER_TYPE == TMC2160 or E0_DRIVER_TYPE == TMC26X or E0_DRIVER_TYPE == TMC2660 or E0_DRIVER_TYPE == TMC5130 or E0_DRIVER_TYPE == TMC5160
 		#define INVERT_E0_DIR true
 #else
 		#define INVERT_E0_DIR false
