@@ -12,7 +12,7 @@ generate-shaper-graph-x.sh
 
 generate-shaper-graph-y.sh 
 
-or give them from https://github.com/Rat-OS/RatOS-configuration/blob/master/scripts/
+or take them from https://github.com/Rat-OS/RatOS-configuration/blob/master/scripts/
 
 Copy .cfg files in your /home/pi/klipper_config/
 
