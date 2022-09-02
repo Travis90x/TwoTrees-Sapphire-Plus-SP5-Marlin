@@ -29,7 +29,8 @@ Important: with ACCELEROMETER_QUERY and similar, only on the first time you will
 ##  ADXL345 with  Robin Nano
 ![ADXL345_Robin_Nano](https://dub01pap001files.storage.live.com/y4me5RW18GIwK_fcUlf7w3nj4w6YMyhTDQUd6DP1olaTgDhr4POYXx636IYYhGHbak8CHpBY5_Dn_FWNWXboiyP17WVmhjfsN_AX_O1amrQrQMvW7O_NV1VgcRobJkIY-zDPruqq5zr07cvk5YB6Xz6V0cT93ciUPWYEXY3Ms8zbQKO7gTfXNDRqOA_E7hh5vAE?width=1031&height=708&cropmode=none)
 
-###  Scheme by Giuseppe di Resta
+
+###  Scheme by Giuseppe di Resta - klippertv.altervista.org
 ![ADXL345_Robin_Nano](https://dub01pap001files.storage.live.com/y4m7IK1BJNt1vKKy8NUyUgY2JDpA7482tIFzu7aFM2l6qReDuUjdhjDP-nApw9XFoc9ub_OlT-Epp4Sf9oqNyEabtPqdv2lteD3IFX947QojT8bwA-xvfb2iBzdVtwOfSdwvqWQZjpb6Ur5XaDAjLe93wcdcejz8Mz-PI_eILencPtmI5IO7DWBWK59edyt5C5Q?width=1280&height=895&cropmode=none)
 
 ###  ADXL345 pinout
