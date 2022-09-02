@@ -16,6 +16,7 @@ or take them from https://github.com/Rat-OS/RatOS-configuration/blob/master/scri
 
 Copy .cfg files in your /home/pi/klipper_config/
 
+### printer.cfg
 Edit your printer.cfg and add
 [include pico.cfg]
 [include shell_command.cfg]
