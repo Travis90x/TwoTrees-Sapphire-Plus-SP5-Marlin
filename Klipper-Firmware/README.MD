@@ -18,7 +18,9 @@ Copy .cfg files in your /home/pi/klipper_config/
 
 ### printer.cfg
 Edit your printer.cfg and add
+
 [include pico.cfg]
+
 [include shell_command.cfg]
 
 ### Pico.cfg
