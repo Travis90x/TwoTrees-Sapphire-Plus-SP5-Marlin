@@ -16,11 +16,15 @@ Edit your printer.cfg and add
 [include pico.cfg]
 [include shell_command.cfg]
 
-Pico.cfg is needed for ADXL345 with RP4020 (a clone of Raspberry Pi Pico)
+### Pico.cfg
+is needed for ADXL345 with RP4020 (a clone of Raspberry Pi Pico)
 as a secondary MCU (usb connected, ex. to Android TV Box with Armbian)
 or for ADXL345 connected to Robin Nano v1.2 SDcard pins
 
 Important: with ACCELEROMETER_QUERY and similar, only on the first time you will got an error, so retry the test.
+
+### Shell_command.cfg
+is needed for TEST_RESONANCES AXIS  and calibrate  input_shaper
 
 
 ![Macro](https://dub01pap001files.storage.live.com/y4mGOp-iUrpMhPgtkeEqMEZ3k1nQwl_hCDf71-isiARBa_gs3s8KwxYC4xswpULqoiH5Z0k6pLB09V1JcVZb0fuJr-a_7hVsXwhT4Y7mG8NQDl39KIycciOlJExZ6BWm5--go07n0JHrwXZSu2HAmOIsfMACPthHFLqGZX4_6zPtUEJfbaRUJcWqs5HtBQoMEUM?width=1024&height=549&cropmode=none)
