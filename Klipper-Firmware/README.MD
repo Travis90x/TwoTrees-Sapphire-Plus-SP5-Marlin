@@ -10,7 +10,7 @@ Pico.cfg is needed for ADXL345 with RP4020 (a clone of Raspberry Pi Pico)
 as a secondary MCU (usb connected, ex. to Android TV Box with Armbian)
 or for ADXL345 connected to Robin Nano v1.2 SDcard pins
 
-Important: with ACCELEROMETER_QUERY et similar, only on the first time you will got an error, so retry the test.
+Important: with ACCELEROMETER_QUERY and similar, only on the first time you will got an error, so retry the test.
 
 
 # Klipper-for-TwoTrees-Sapphire-Plus-SP5
