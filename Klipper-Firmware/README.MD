@@ -5,9 +5,13 @@ https://github.com/Travis90x/TwoTrees-Sapphire-Plus-SP5/wiki/Klipper
 # Klipper ADXL345 with RP4020 Zero or Robin Nano
 
 Copy scripts in your ~/klipper/scripts/ folder  (ex. /home/pi/klipper/scripts/)
+
 generate-belt-tension-graph.sh
+
 generate-shaper-graph-x.sh
+
 generate-shaper-graph-y.sh 
+
 or give them from https://github.com/Rat-OS/RatOS-configuration/blob/master/scripts/
 
 Copy .cfg files in your /home/pi/klipper_config/
