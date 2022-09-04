@@ -47,7 +47,9 @@
 
 //#define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
       #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
-#define BLTOUCH_WITH_ENDSTOPS           // BL Touch doesn't replace ZMIN or ZMAX, but use PE6 (2nd runout filament sensor)
+       #if z_endstop_qty > 0
+          #define BLTOUCH_WITH_ENDSTOPS           // BL Touch doesn't replace ZMIN or ZMAX, but use PE6 (2nd runout filament sensor)
+       #endif
       #endif
 
 
