@@ -1569,12 +1569,13 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#if DISABLED(BLTOUCH_WITH_ENDSTOPS)
-  #if ENABLED (SAPPHIRE_PLUS_BLTOUCH)
-    #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
-    #define USE_PROBE_FOR_Z_HOMING
-  #endif	
-#endif  
+
+#if ENABLED (SAPPHIRE_PLUS_BLTOUCH)
+   #if DISABLED(BLTOUCH_WITH_ENDSTOPS)  
+    #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN // Use BLTouch as endstop Z connected to ZMIN
+    #define USE_PROBE_FOR_Z_HOMING  	
+#endif
+
 // Force the use of the probe for Z-axis homing
 
 //#define USE_PROBE_FOR_Z_HOMING
