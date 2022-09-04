@@ -2,7 +2,7 @@
  * Marlin build for TwoTrees Sapphire Plus with stock hardware
  * Every changed settings could be find by searching for
  * 
- * Last changes 2022-07-22 14:22
+ * Last changes 2022-09-04 18:22
  *
  * Marlin 3D Printer Firmware
  * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
@@ -47,35 +47,31 @@
 
 #define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
      
-// If use BLTouch without endstops z, connect BL Touch to ZMIM PA11 pin (Z-)
-// If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2)
+// If BLTouch without endstops z, connect BLTouch to ZMIM PA11 pin (Z-)
+// If BLtouch with 1 or 2 endstop z, connect BLTouch on PE6 pin (MT_DET2)
+#define BLTOUCH_GENUINE  // Comment if you use a clone 3DTouch v3.2 with inverted logic for endstop
 
 
+#define GRIDMAX_POINTS 3  // Points for Bed leveling mesh: 3,5,7,8,9..... points to test with mesh or bltouch, 5= 5x5, so 25 probe points
 
-#define GRIDMAX_POINTS 3  //3,5,7,8,9..... points to test with mesh or bltouch, 5= 5x5, so 25 probe points
-
-//#define SEPARATED_Z_MOTORS // to enable probe without Endstops and without BLTouch for non synched Plus Z step motors
+//#define SEPARATED_Z_MOTORS // to enable probe without Endstops and without BLTouch for non belt-synced Z motors
 
 #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
   #define probe_x   0.0   //probe point of X respect to bltouch mount
   #define probe_y -40.0   //probe point of Y respect to bltouch mount: negative for BLTOUCH on the MK8 fan side (visible from front)
   #define probe_z   1.0   //probe point of Z respect to bltouch mount, usually 0
-
 #endif
-
-
 
 // ========================= AUTO FAN on HEATER 1 =========================
 #define SAPPHIRE_PLUS_AUTOFAN           // Power ON fans on "Hot-End-1 pinout" PIN: PB0 when Hotend >= 50°
 
-
 // ========================= HEATER 1 INSTEAD 0 =========================
       #if DISABLED(SAPPHIRE_PLUS_AUTOFAN)
-//#define HE1ASHE0 // Mosfet HE0 burnt, use HE1
+//#define HE1ASHE0 // If Mosfet HE0 is burnt, use HE1
       #endif
 
 // ========================= DIRECT DRIVE =========================
-//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode (no browden)
+//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode, ex. for Diamond mount (not stock browden)
 
 
 //======================================================================================
@@ -85,19 +81,20 @@
 #define z_endstop_qty 1  //how many endstop on Z
      #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
       #if z_endstop_qty > 0
-          #define BLTOUCH_WITH_ENDSTOPS           // BL Touch doesn't replace ZMIN or ZMAX, but use PE6 (2nd runout filament sensor)
+          #define BLTOUCH_WITH_ENDSTOPS           
+       // BLTouch doesn't replace ZMIN or ZMAX, but use PE6 MT_Det2 (pins for 2nd runout filament sensor)
       #endif
      #endif
 
 
-#define set_auto_conf  // to use SapphirePlusVariant instead manually 
+#define set_auto_conf  // to use SapphirePlusVariant instead MANUALLY
 
 #ifdef set_auto_conf
-#define SapphirePlusVariant 44 // Read below
+ #define SapphirePlusVariant 44 // Read below
 #endif
 
-/** CHOOSE YOUR SAPPHIRE PLUS CONFIGURATION
-  * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988
+/** CHOOSE YOUR SAPPHIRE PLUS VARIANT
+ * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988
  * 10:  X tmc2208, Y tmc2208, E a4988, 	 dual 	Z a4988
  * 11:	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988
  * 2: 	X tmc2208, Y tmc2208, E a4988, 	 dual 	Z tmc2208
@@ -108,33 +105,36 @@
  * 6: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988
  * 7: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2225
  * 8: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2209
-  */
+ */
 
-
-// comment #define set_auto_conf to set manually
+// MANUALLY
+// comment "#define set_auto_conf" to set manually
 #if DISABLED(set_auto_conf)
-  #define X_DRIVER_TYPE TMC2209
-  #define Y_DRIVER_TYPE TMC2209
-  #define Z_DRIVER_TYPE TMC2209
-  #define Z2_DRIVER_TYPE TMC2209
-  #define E0_DRIVER_TYPE TMC2209
+  #define X_DRIVER_TYPE TMC2208
+  #define Y_DRIVER_TYPE TMC2208
+  #define Z_DRIVER_TYPE TMC2208
+  #define Z2_DRIVER_TYPE TMC2208
+  #define E0_DRIVER_TYPE TMC2208
 #endif
 
-/** CHOOSE YOUR STEPPER DRIVER MANUALLY
- * Use TMC2208 for TMC2225 drivers and TMC2209 for TMC2226 drivers.
+/** IF YOU CHOOSE STEPPER DRIVER MANUALLY
+ * use TMC2208 instead TMC2225 drivers and TMC2209 instead TMC2226.
  *
  * Options: A4988, A5984, DRV8825, LV8729, L6470, L6474, POWERSTEP01, TB6560,
- * TB6600, TMC2100, TMC2130, TMC2160, TMC2208, TMC2209, TMC26X,TMC2660, TMC5130, TMC5160
+ * TB6600, TMC2100, TMC2130, TMC2160, TMC2208, TMC2209, TMC26X,TMC2660, TMC5130, TMC5160.
  * A4988 is assumed for unspecified drivers.
 */
 
 // ======================= UART MODE ====================
-// Don't use suffix "STANDALONE" for TMC2XXX
+// Don't use suffix "STANDALONE" for TMC2XXX in the configuration above
 
-//#define SAPPHIRE_PLUS_TMC_UART          //  UART for addresses 2209: 4x on PIN PA9 (X,Y,Z,Z2) 1x on PA10 (E0)
-//#define SAPPHIRE_PLUS_TMC_UART_DIRECT   // UART for 2208 single PIN for each DRIVER
-  
-/**  PIN Setup	 
+//#define SAPPHIRE_PLUS_TMC_UART          
+    // UART for addresses TMC2209/2226: 1 wire for 4x steppers on PIN PA9 (X,Y,Z,Z2), 1 wire for 1x stepper on PA10 (E0)
+
+
+//#define SAPPHIRE_PLUS_TMC_UART_DIRECT
+/** UART for TMC2208/2225: each stepper driver needs a single wire for a single PIN on the board
+ *    PIN Setup	 
  *     X_SERIAL_TX_PIN                   PA9    
  *     X_SERIAL_RX_PIN                   PA9
  *     Y_SERIAL_TX_PIN                   PA10   
@@ -171,7 +171,7 @@
 //== POWER LOSS == NEOPIXEL LED RGB ==
 //===========================================================================
 
-//  UPS function
+// UPS function
 	//#define SAPPHIRE_PLUS_POWERLOSSRECOVERY   // on PIN PA2
 
 // LED Strips RGB addressable
@@ -254,7 +254,7 @@
   #define MOTHERBOARD BOARD_MKS_ROBIN_NANO   // BOARD_MKS_ROBIN_NANO_V1.2
   //#define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V1.3_F4 
   //#define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V2        // for last 2022 versions
-  #endif
+#endif
 
 
 /**
@@ -302,8 +302,6 @@
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
-
-
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -1318,7 +1316,13 @@
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #define USE_XMIN_PLUG   //  
 //#define USE_YMIN_PLUG
-#define USE_ZMIN_PLUG     //Z1 Endstop (Left) on PA11
+
+#if z_endstop_qty > 0
+    #define USE_ZMIN_PLUGN    // Z1 endstop (Left side) on PA11
+#elif ENABLED(SAPPHIRE_PLUS_BLTOUCH)
+    #define USE_ZMIN_PLUG     // BLTouch as endstop, without phisical endtops Z
+#endif
+
 //#define USE_IMIN_PLUG
 //#define USE_JMIN_PLUG
 //#define USE_KMIN_PLUG
@@ -1328,11 +1332,10 @@
 //#define USE_XMAX_PLUG
 #define USE_YMAX_PLUG     //Y endstop is not MIN on Sapphire Plus
 
-//#if DISABLED(SAPPHIRE_PLUS_BLTOUCH) // BL Touch replaces endstops
-    #if z_endstop_qty > 1          // 2x Z endstop
-      #define USE_ZMAX_PLUG        // Z2 Endstop (Right side) on PC4
-    #endif 
-//#endif  
+#if z_endstop_qty > 1          // 2x Z endstop
+      #define USE_ZMAX_PLUG        // Z2 Endstop (Right side) on PC4 (Z+)
+#endif 
+
 //#define USE_UMAX_PLUG
 //#define USE_VMAX_PLUG
 //#define USE_WMAX_PLUG
@@ -1395,12 +1398,12 @@
 #define X_MIN_ENDSTOP_INVERTING true  // ENDSTOP X - Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 
-#if ENABLED(SAPPHIRE_PLUS_BLTOUCH) && DISABLED(BLTOUCH_WITH_ENDSTOPS)
+#if ENABLED(SAPPHIRE_PLUS_BLTOUCH) && DISABLED(BLTOUCH_WITH_ENDSTOPS) && ENABLED(BLTOUCH_GENUINE)
     #define Z_MIN_ENDSTOP_INVERTING false // BLTouch - Set to true to invert the logic of the endstop.
-    #define Z_MAX_ENDSTOP_INVERTING true  // NO BL Touch, but endstop switch
+    #define Z_MAX_ENDSTOP_INVERTING true  // not used
 #else
-    #define Z_MIN_ENDSTOP_INVERTING true   // endstop switch
-    #define Z_MAX_ENDSTOP_INVERTING true   // endstop switch
+    #define Z_MIN_ENDSTOP_INVERTING true   // Z1 endstop switch or BLTouch clone (3DTouch v3.2)
+    #define Z_MAX_ENDSTOP_INVERTING true   // Z2 endstop switch
 #endif
 
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -1411,9 +1414,7 @@
 #define W_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 
 #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING true  // ENDSTOP Y - Set to true to invert the logic of the endstop.
-
-
+#define Y_MAX_ENDSTOP_INVERTING true  // Phisical Endstop Y - Set to true to invert the logic of the endstop.
 
 #define I_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
