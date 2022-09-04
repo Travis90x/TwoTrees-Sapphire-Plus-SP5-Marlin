@@ -45,7 +45,7 @@
 
 //#define ROTATED_SCREEN //to rotate screen of 180 degrees if all shown upset! on TFT
 
-//#define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
+#define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
      
 // If use BLTouch without endstops z, connect BL Touch to ZMIM PA11 pin (Z-)
 // If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2)
@@ -75,14 +75,14 @@
       #endif
 
 // ========================= DIRECT DRIVE =========================
-#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode (no browden)
+//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode (no browden)
 
 
 //======================================================================================
 //== ENDSTOPS == STEPPER DRIVERS == UART == WIFI == LINEAR_ADVANCE == FILAMENT SENSOR ==
 //======================================================================================
 
-#define z_endstop_qty 2  //how many endstop on Z
+#define z_endstop_qty 1  //how many endstop on Z
      #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
       #if z_endstop_qty > 0
           #define BLTOUCH_WITH_ENDSTOPS           // BL Touch doesn't replace ZMIN or ZMAX, but use PE6 (2nd runout filament sensor)
@@ -93,7 +93,7 @@
 #define set_auto_conf  // to use SapphirePlusVariant instead manually 
 
 #ifdef set_auto_conf
-#define SapphirePlusVariant 11 // Read below
+#define SapphirePlusVariant 44 // Read below
 #endif
 
 /** CHOOSE YOUR SAPPHIRE PLUS CONFIGURATION
