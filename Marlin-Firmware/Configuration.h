@@ -1390,7 +1390,7 @@
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 
 #if ENABLED(SAPPHIRE_PLUS_BLTOUCH) && DISABLED(BLTOUCH_WITH_ENDSTOPS)
-    #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+    #define Z_MIN_ENDSTOP_INVERTING false // BLTouch - Set to true to invert the logic of the endstop.
     #define Z_MAX_ENDSTOP_INVERTING true  // NO BL Touch, but endstop switch
 #else
     #define Z_MIN_ENDSTOP_INVERTING true   // endstop switch
