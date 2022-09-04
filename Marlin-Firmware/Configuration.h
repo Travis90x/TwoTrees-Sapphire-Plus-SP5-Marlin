@@ -1119,8 +1119,9 @@
 
 
     // DEFINE X & Y
- 
-#if SapphirePlusVariant == 8
+#if DISABLED(set_auto_conf)
+
+ #if SapphirePlusVariant == 8 or SapphirePlusVariant == 7
   #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
     #define  X_DRIVER_TYPE TMC2209 //      
     #define  Y_DRIVER_TYPE TMC2209 //        
@@ -1128,7 +1129,7 @@
     #define  X_DRIVER_TYPE TMC2209_STANDALONE // 
     #define  Y_DRIVER_TYPE TMC2209_STANDALONE // 
   #endif
-#else
+ #else
   #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
     #define X_DRIVER_TYPE TMC2208 // 
 	  #define Y_DRIVER_TYPE TMC2208 // 
@@ -1136,41 +1137,42 @@
     #define X_DRIVER_TYPE TMC2208_STANDALONE //
     #define Y_DRIVER_TYPE TMC2208_STANDALONE // 
   #endif
-#endif
+ #endif
+
  
 // DEFINE Z
-#if SapphirePlusVariant == 8
+ #if SapphirePlusVariant == 8
   #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
     #define  Z_DRIVER_TYPE TMC2209 //
   #else
     #define  Z_DRIVER_TYPE TMC2209_STANDALONE // 
   #endif
-#elif SapphirePlusVariant == 2 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 7 // 
+ #elif SapphirePlusVariant == 2 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 7 // 
   #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
     #define  Z_DRIVER_TYPE TMC2208 //      
   #else
     #define  Z_DRIVER_TYPE TMC2208_STANDALONE // 
   #endif
-#elif SapphirePlusVariant == 1 or SapphirePlusVariant == 10 or SapphirePlusVariant == 11 or SapphirePlusVariant == 5 //
+ #elif SapphirePlusVariant == 1 or SapphirePlusVariant == 10 or SapphirePlusVariant == 11 or SapphirePlusVariant == 5 //
     #define Z_DRIVER_TYPE A4988
-#endif
+ #endif
  
-// DEFINE Z2
-#if SapphirePlusVariant == 8  // 
+ // DEFINE Z2
+ #if SapphirePlusVariant == 8  // 
   #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
     #define  Z2_DRIVER_TYPE TMC2209 //
   #else
     #define  Z2_DRIVER_TYPE TMC2209_STANDALONE // 
   #endif
-#elif SapphirePlusVariant == 2 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 7  // 
+ #elif SapphirePlusVariant == 2 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 7  // 
 	#if ENABLED(SAPPHIRE_PLUS_TMC_UART)
 		#define Z2_DRIVER_TYPE TMC2208 //      
 	#else
 		#define Z2_DRIVER_TYPE TMC2208_STANDALONE // 
 	#endif
-#elif SapphirePlusVariant == 6 or SapphirePlusVariant == 10 or SapphirePlusVariant == 11 //
+ #elif SapphirePlusVariant == 6 or SapphirePlusVariant == 10 or SapphirePlusVariant == 11 //
 		#define Z2_DRIVER_TYPE A4988  //
-#endif 
+ #endif 
 
 
 #define NO_AUTO_ASSIGN_WARNING  //if disabled, debug alert Auto-assigned other Z stepper to unused E stepper
@@ -1182,17 +1184,17 @@
   #else
     #define E0_DRIVER_TYPE TMC2209_STANDALONE // 
   #endif
-#elif SapphirePlusVariant == 11 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 6  // 
+ #elif SapphirePlusVariant == 11 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 6  // 
 	#if ENABLED(SAPPHIRE_PLUS_TMC_UART)
 		#define E0_DRIVER_TYPE TMC2208 //      
 	#else
 		#define E0_DRIVER_TYPE TMC2208_STANDALONE // 
 	#endif
-#elif SapphirePlusVariant == 1 or SapphirePlusVariant == 10 or SapphirePlusVariant == 2 //
+ #elif SapphirePlusVariant == 1 or SapphirePlusVariant == 10 or SapphirePlusVariant == 2 //
 		#define E0_DRIVER_TYPE A4988 //
-#endif // 
+ #endif // 
 
- 
+#endif // end if set auto conf
 
 
 #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
@@ -1990,7 +1992,7 @@
 #endif
 
 #ifdef Z2_DRIVER_TYPE
-  #if Z2_DRIVER_TYPE == TMC2208 or Z2_DRIVER_TYPE == TMC2208_STANDALONE or Z2_DRIVER_TYPE == TMC2209 or Z2_DRIVER_TYPE == Z2_DRIVER_TYPE or Z2_DRIVER_TYPE == TMC2130 or Z2_DRIVER_TYPE == TMC2160 or Z2_DRIVER_TYPE == TMC26X or Z2_DRIVER_TYPE == TMC2660 or Z2_DRIVER_TYPE == TMC5130 or Z2_DRIVER_TYPE == TMC5160
+  #if Z2_DRIVER_TYPE == TMC2208 or Z2_DRIVER_TYPE == TMC2208_STANDALONE or Z2_DRIVER_TYPE == TMC2209 or Z2_DRIVER_TYPE == TMC2209_STANDALONE or Z2_DRIVER_TYPE == TMC2130 or Z2_DRIVER_TYPE == TMC2160 or Z2_DRIVER_TYPE == TMC26X or Z2_DRIVER_TYPE == TMC2660 or Z2_DRIVER_TYPE == TMC5130 or Z2_DRIVER_TYPE == TMC5160
    #define INVERT_Z2_DIR true
   #else 
     #ifdef Z2_DRIVER_TYPE
