@@ -1323,8 +1323,8 @@
 #define USE_YMAX_PLUG     //Y endstop is not MIN on Sapphire Plus
 
 //#if DISABLED(SAPPHIRE_PLUS_BLTOUCH) // BL Touch replaces endstops
-    #ifdef Z2_DRIVER_TYPE          // 2x Z Stepper Drivers
-      #define USE_ZMAX_PLUG        // Z2 Endstop (Right) on PC4
+    #if z_endstop_qty > 1          // 2x Z endstop
+      #define USE_ZMAX_PLUG        // Z2 Endstop (Right side) on PC4
     #endif 
 //#endif  
 //#define USE_UMAX_PLUG
