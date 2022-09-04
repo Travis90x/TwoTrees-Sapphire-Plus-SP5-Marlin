@@ -1346,8 +1346,8 @@
 //#define USE_KMAX_PLUG
 
 
-// Enable pullup for all endstops to prevent a floating state
-#define ENDSTOPPULLUPS
+// Enable pullup for all phisycal endstops without a resistor on signal to prevent a floating state
+// #define ENDSTOPPULLUPS  // Disable this for optical endstops or physical endstop with a resistor on signal
 #if DISABLED(ENDSTOPPULLUPS)
   // Disable ENDSTOPPULLUPS to set pullups individually
   //#define ENDSTOPPULLUP_XMIN
@@ -1368,7 +1368,9 @@
   //#define ENDSTOPPULLUP_UMAX
   //#define ENDSTOPPULLUP_VMAX
   //#define ENDSTOPPULLUP_WMAX
-  //#define ENDSTOPPULLUP_ZMIN_PROBE
+  #if ENABLED(SAPPHIRE_PLUS_BLTOUCH) && DISABLED(BLTOUCH_WITH_ENDSTOPS)
+    #define ENDSTOPPULLUP_ZMIN_PROBE
+  #endif
 #endif
 
 // Enable pulldown for all endstops to prevent a floating state
