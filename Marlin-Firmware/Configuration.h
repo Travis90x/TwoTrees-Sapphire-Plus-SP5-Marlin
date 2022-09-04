@@ -87,11 +87,10 @@
      #endif
 
 
-#define set_auto_conf  // to use SapphirePlusVariant instead MANUALLY
+#define set_auto_conf  // to use SapphirePlusVariant instead "MANUAL CONFIGURATION"
 
 #ifdef set_auto_conf
  #define SapphirePlusVariant 44 // Read below
-#endif
 
 /** CHOOSE YOUR SAPPHIRE PLUS VARIANT
  * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988
@@ -107,29 +106,11 @@
  * 8: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2209
  */
 
-// MANUALLY
-// comment "#define set_auto_conf" to set manually
-#if DISABLED(set_auto_conf)
-  #define X_DRIVER_TYPE TMC2208
-  #define Y_DRIVER_TYPE TMC2208
-  #define Z_DRIVER_TYPE TMC2208
-  #define Z2_DRIVER_TYPE TMC2208
-  #define E0_DRIVER_TYPE TMC2208
-#endif
-
-/** IF YOU CHOOSE STEPPER DRIVER MANUALLY
- * use TMC2208 instead TMC2225 drivers and TMC2209 instead TMC2226.
- *
- * Options: A4988, A5984, DRV8825, LV8729, L6470, L6474, POWERSTEP01, TB6560,
- * TB6600, TMC2100, TMC2130, TMC2160, TMC2208, TMC2209, TMC26X,TMC2660, TMC5130, TMC5160.
- * A4988 is assumed for unspecified drivers.
-*/
-
 // ======================= UART MODE ====================
-// Don't use suffix "STANDALONE" for TMC2XXX in the configuration above
-
+// Don't use suffix "_STANDALONE" for TMC2XXX in the configuration above
+// instradamento, define this
 //#define SAPPHIRE_PLUS_TMC_UART          
-    // UART for addresses TMC2209/2226: 1 wire for 4x steppers on PIN PA9 (X,Y,Z,Z2), 1 wire for 1x stepper on PA10 (E0)
+    // Enable UART for addresses TMC2209/2226: 1 wire for 4x steppers on PIN PA9 (X,Y,Z,Z2), 1 wire for 1x stepper on PA10 (E0)
 
 
 //#define SAPPHIRE_PLUS_TMC_UART_DIRECT
@@ -146,7 +127,26 @@
  *     E0_SERIAL_TX_PIN                  PE5    
  *     E0_SERIAL_RX_PIN                  PE5
 */
-  
+#endif  // end auto conf
+
+
+// MANUAL CONFIGURATION
+// comment "#define set_auto_conf" above to set manually
+#if DISABLED(set_auto_conf)
+  #define X_DRIVER_TYPE TMC2208_STANDALONE
+  #define Y_DRIVER_TYPE TMC2208_STANDALONE
+  #define Z_DRIVER_TYPE TMC2208_STANDALONE
+  #define Z2_DRIVER_TYPE TMC2208_STANDALONE
+  #define E0_DRIVER_TYPE TMC2208_STANDALONE
+#endif
+
+/** IF YOU CHOOSE STEPPER DRIVER MANUALLY
+ * use TMC2208 instead TMC2225 drivers and TMC2209 instead TMC2226.
+ * add "_STANDALONE" to TMCxxxx drive for NON UART mode
+ * Options: A4988, A5984, DRV8825, LV8729, L6470, L6474, POWERSTEP01, TB6560,
+ * TB6600, TMC2100, TMC2130, TMC2160, TMC2208, TMC2209, TMC26X,TMC2660, TMC5130, TMC5160.
+ * A4988 is assumed for unspecified drivers.
+*/
 
 // ======================== WIFI ========================
 //#define SAPPHIRE_PLUS_HAS_WIFI          // ESP8266 per WIFI
@@ -1130,9 +1130,9 @@
     #define  Y_DRIVER_TYPE TMC2209_STANDALONE // 
   #endif
  #else
-  #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
+  #if ENABLED(SAPPHIRE_PLUS_TMC_UART_DIRECT)
     #define X_DRIVER_TYPE TMC2208 // 
-	  #define Y_DRIVER_TYPE TMC2208 // 
+    #define Y_DRIVER_TYPE TMC2208 // 
   #else
     #define X_DRIVER_TYPE TMC2208_STANDALONE //
     #define Y_DRIVER_TYPE TMC2208_STANDALONE // 
@@ -1148,7 +1148,7 @@
     #define  Z_DRIVER_TYPE TMC2209_STANDALONE // 
   #endif
  #elif SapphirePlusVariant == 2 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 7 // 
-  #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
+  #if ENABLED(SAPPHIRE_PLUS_TMC_UART_DIRECT)
     #define  Z_DRIVER_TYPE TMC2208 //      
   #else
     #define  Z_DRIVER_TYPE TMC2208_STANDALONE // 
@@ -1165,7 +1165,7 @@
     #define  Z2_DRIVER_TYPE TMC2209_STANDALONE // 
   #endif
  #elif SapphirePlusVariant == 2 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 7  // 
-	#if ENABLED(SAPPHIRE_PLUS_TMC_UART)
+	#if ENABLED(SAPPHIRE_PLUS_TMC_UART_DIRECT)
 		#define Z2_DRIVER_TYPE TMC2208 //      
 	#else
 		#define Z2_DRIVER_TYPE TMC2208_STANDALONE // 
@@ -1185,7 +1185,7 @@
     #define E0_DRIVER_TYPE TMC2209_STANDALONE // 
   #endif
  #elif SapphirePlusVariant == 11 or SapphirePlusVariant == 3 or SapphirePlusVariant == 4 or SapphirePlusVariant == 44 or SapphirePlusVariant == 5 or SapphirePlusVariant == 6  // 
-	#if ENABLED(SAPPHIRE_PLUS_TMC_UART)
+	#if ENABLED(SAPPHIRE_PLUS_TMC_UART_DIRECT)
 		#define E0_DRIVER_TYPE TMC2208 //      
 	#else
 		#define E0_DRIVER_TYPE TMC2208_STANDALONE // 
@@ -1197,10 +1197,10 @@
 #endif // end if set auto conf
 
 
-#if ENABLED(SAPPHIRE_PLUS_TMC_UART)
+#if ENABLED(SAPPHIRE_PLUS_TMC_UART) or ENABLED(SAPPHIRE_PLUS_TMC_UART_DIRECT)
   #define TMC_BAUD_RATE                     19200 // Reduced to improve software serial reliability
   
-  #if DISABLED (SAPPHIRE_PLUS_TMC_UART_DIRECT)
+  #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
     #define X_SERIAL_TX_PIN                   PA10   // Wifi TX
     #define X_SERIAL_RX_PIN                   PA10
     #define Y_SERIAL_TX_PIN                   PA10  // Wifi RX
@@ -1213,8 +1213,7 @@
     #define E0_SERIAL_RX_PIN                  PA9
     //#define E1_SERIAL_TX_PIN                  PA10  // WIFI IO1
     //#define E1_SERIAL_RX_PIN                  PA10  // WIFI IO1
-    
- #else
+   #elif ENABLED(SAPPHIRE_PLUS_TMC_UART_DIRECT)
     #define X_SERIAL_TX_PIN                   PA9   // Wifi TX
     #define X_SERIAL_RX_PIN                   PA9
     #define Y_SERIAL_TX_PIN                   PA10  // Wifi RX
@@ -1227,8 +1226,7 @@
     #define E0_SERIAL_RX_PIN                  PE5
     //#define E1_SERIAL_TX_PIN                  PC7   // MAX31855 CS
     //#define E1_SERIAL_RX_PIN                  PC7
-    
-  #endif
+   #endif
 #endif
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
