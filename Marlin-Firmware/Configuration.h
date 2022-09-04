@@ -1410,6 +1410,14 @@
     #define Z_MAX_ENDSTOP_INVERTING true   // Z2 endstop switch
 #endif
 
+#if ENABLED(SAPPHIRE_PLUS_BLTOUCH) && ENABLED(BLTOUCH_GENUINE)
+    #define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
+#else
+    #define Z_MIN_PROBE_ENDSTOP_INVERTING true
+#endif
+
+
+
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -1426,7 +1434,6 @@
 #define U_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define V_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define W_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
 
 
 /**
