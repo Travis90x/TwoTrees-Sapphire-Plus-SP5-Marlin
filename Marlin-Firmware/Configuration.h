@@ -1577,7 +1577,8 @@
 #if ENABLED (SAPPHIRE_PLUS_BLTOUCH)
    #if DISABLED(BLTOUCH_WITH_ENDSTOPS)  
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN // Use BLTouch as endstop Z connected to ZMIN
-    #define USE_PROBE_FOR_Z_HOMING  	
+    #define USE_PROBE_FOR_Z_HOMING
+   #endif
 #endif
 
 // Force the use of the probe for Z-axis homing
