@@ -46,8 +46,7 @@
 //#define ROTATED_SCREEN //to rotate screen of 180 degrees if all shown upset! on TFT
 
 //#define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
-      #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
-      #endif
+     
 // If use BLTouch without endstops z, connect BL Touch to ZMIM PA11 pin (Z-)
 // If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2)
 
