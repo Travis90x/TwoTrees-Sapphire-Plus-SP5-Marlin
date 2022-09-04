@@ -52,7 +52,7 @@
 #define BLTOUCH_GENUINE  // Comment if you use a clone 3DTouch v3.2 with inverted logic for endstop
 
 
-#define GRIDMAX_POINTS 3  // Points for Bed leveling mesh: 3,5,7,8,9..... points to test with mesh or bltouch, 5= 5x5, so 25 probe points
+#define GRIDMAX_POINTS 3  // Points for Bed leveling mesh: 3,4,5.... grid points to test the mesh with bltouch: grid 5 = 5x5, so 25 probe points
 
 //#define SEPARATED_Z_MOTORS // to enable probe without Endstops and without BLTouch for non belt-synced Z motors
 
