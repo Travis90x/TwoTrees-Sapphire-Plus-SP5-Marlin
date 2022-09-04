@@ -48,12 +48,14 @@
 //#define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
       #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
       #endif
+// If use BLTouch without endstops z, connect BL Touch to ZMIM PA11 pin (Z-)
+// If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2)
 
 
 
 #define GRIDMAX_POINTS 3  //3,5,7,8,9..... points to test with mesh or bltouch, 5= 5x5, so 25 probe points
 
-//#define SEPARATED_Z_MOTORS // to enable probe without Endstops and withous BLTouch for non synched Plus Z step motors
+//#define SEPARATED_Z_MOTORS // to enable probe without Endstops and without BLTouch for non synched Plus Z step motors
 
 #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
   #define probe_x   0.0   //probe point of X respect to bltouch mount
