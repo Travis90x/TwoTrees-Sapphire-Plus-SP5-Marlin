@@ -59,7 +59,7 @@
 #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
   #define probe_x   0.0   //probe point of X respect to bltouch mount
   #define probe_y -40.0   //probe point of Y respect to bltouch mount: negative for BLTOUCH on the MK8 fan side (visible from front)
-  #define probe_z   1.0   //probe point of Z respect to bltouch mount, usually 0
+  #define probe_z   2.0   //probe point of Z respect to bltouch mount, usually 0
 #endif
 
 // ========================= AUTO FAN on HEATER 1 =========================
@@ -2068,7 +2068,7 @@
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0    // Centre printable area on the bed
 #define Y_MIN_POS 0
-#define Z_MIN_POS 0
+#define Z_MIN_POS -3
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 
