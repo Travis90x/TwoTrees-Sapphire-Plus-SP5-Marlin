@@ -1119,7 +1119,7 @@
 
 
     // DEFINE X & Y
-#if DISABLED(set_auto_conf)
+#if ENABLED(set_auto_conf)
 
  #if SapphirePlusVariant == 8 or SapphirePlusVariant == 7
   #if ENABLED(SAPPHIRE_PLUS_TMC_UART)
