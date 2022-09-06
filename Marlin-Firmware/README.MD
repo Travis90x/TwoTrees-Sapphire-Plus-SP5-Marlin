@@ -19,22 +19,22 @@ If use BLTouch without endstops z, connect BL Touch to ZMIM PA11 pin (Z-)
 If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2)
 
 #define SapphirePlusVariant *
-/** CHOOSE YOUR SAPPHIRE PLUS CONFIGURATION
-* 1:__X_tmc2208,_Y_tmc2208,_E_a4988,___single_Z_a4988,____1_endstop
-* 10:_X_tmc2208,_Y_tmc2208,_E_a4988,___dual_Z_a4988,_____2_endstops
-* 11:_X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_a4988,_____2_endstops
-* 2:__X_tmc2208,_Y_tmc2208,_E_a4988,___dual_Z_tmc2208,___2_endstops
-* 3:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_single_Z_tmc2208,_1_endstop
-* 4:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_tmc2208,___1_endstop
-* 44:_X_tmc2225,_Y_tmc2225,_E_tmc2225,_dual_Z_tmc2225,___1_endstop
-* 5:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_tmc2208,___2_endstops
-* 6:__X_tmc2208,_Y_tmc2208,_E_tmc2208,_dual_Z_a4988,______2_endstops
-* 7:__X_tmc2209,_Y_tmc2209,_E_tmc2209,_dual_Z_tmc2225,___2_endstops
-* 8:__X_tmc2209,_Y_tmc2209,_E_tmc2209,_dual_Z_tmc2209,___1_endstop
-
+/** CHOOSE YOUR SAPPHIRE PLUS VARIANT
+ * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988
+ * 10:  X tmc2208, Y tmc2208, E a4988, 	 dual 	Z a4988
+ * 11:	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988
+ * 2: 	X tmc2208, Y tmc2208, E a4988, 	 dual 	Z tmc2208
+ * 3: 	X tmc2208, Y tmc2208, E tmc2208, single Z tmc2208
+ * 4: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z tmc2208
+ * 44: 	X tmc2225, Y tmc2225, E tmc2225, dual 	Z tmc2225
+ * 5: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z tmc2208
+ * 6: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988
+ * 7: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2225
+ * 8: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2209
+ */
  
 #define SAPPHIRE_PLUS_TMC_UART           
-// 2209 UART addresses: 4x on PIN PA9 (X,Y,Z,Z2) 1x on PA10 (E0)
+// 2209 UART addresses: 4 steppers with 1 dire on PIN PA9 (X,Y,Z,Z2) 1 stepper on PA10 (E0)
 
 #define SAPPHIRE_PLUS_TMC_UART_DIRECT
 // UART 2208 single PIN for each DRIVER
@@ -48,14 +48,12 @@ If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2)
 #define SAPPHIRE_PLUS_RUNOUT    // Filament Sensor
 
 Define SAPPHIRE_PLUS_BLTOUCH
-if you use it (it will be connected replacing Z1 Endstop, and without Z2 Endstop)
-
-Define BLTOUCH_WITH_ENDSTOPS
-if you use BL-Touch on PIN PE6 for bed leveling and two Z_Enstops for Homing.
+you can use BL-Touch on PIN PE6 for bed leveling and 1 or 2 Z_Enstops for Homing.
 
 #define probe_x probe_y probe_z (position of BLTouch respect Nozzle)
  
-#define SEPARATED_Z_MOTORS // to enable probe without Endstops and withous BLTouch for non synched Plus Z step motors
+#define SEPARATED_Z_MOTORS 
+// to enable probe without Endstops and with or without BLTouch for non belt-synced Z step motors
 
 #define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode (no browden)
 
