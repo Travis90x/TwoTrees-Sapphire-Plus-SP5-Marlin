@@ -16,7 +16,7 @@ Configure z_endstop_qty if you use 0, 1 or 2 physics Z endstops
 
 If use BLTouch without endstops z, connect BL Touch to ZMIM PA11 pin (Z-)
 
-If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2
+If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2)
 
 #define SapphirePlusVariant *
 /** CHOOSE YOUR SAPPHIRE PLUS CONFIGURATION
