@@ -3,10 +3,6 @@
 This is a non-offical project. 
 This repo contains one preconfigured Marlin 2.0.x bugifix fimrware versions for 3D-Printer "TwoTrees Sapphire Plus or SP5".
 There are several different revisions of this printer, so you have to choose your Sapphire "Variant" in configuration.h file. 
-I will release compiled Firmware for main Versions of it.
-The Sapphire Pro (New Name: SP-3) are not supported yet. 
-If you've got a Printer: Please feel free to do a pull-request, when your firmware is working.
-
 
 # Configuration.h
 
