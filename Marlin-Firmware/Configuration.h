@@ -192,7 +192,7 @@
  *
  * Advanced settings can be found in Configuration_adv.h
  */										
-#define CONFIGURATION_H_VERSION 02010100
+#define CONFIGURATION_H_VERSION 02000905
 
 //===========================================================================
 //============================= Getting Started =============================
@@ -217,7 +217,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "Marlin 2.1.x bugfix" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "Marlin 2.0.x bugfix" // Who made the changes.
 
 // Name displayed in the LCD "Ready" message and Info menu
 #define CUSTOM_MACHINE_NAME "Sapphire Plus"
