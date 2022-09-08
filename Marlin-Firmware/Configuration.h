@@ -26,7 +26,7 @@
  */
 #pragma once
 
-  
+#define CONFIGURATION_H_VERSION 02000905
 
 //#define CONFIG_EXAMPLES_DIR "Two Trees/Sapphire Plus/Sapphire Plus V2"
 
@@ -48,7 +48,7 @@
 #define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
      
 // If BLTouch without endstops z, connect BLTouch to ZMIM PA11 pin (Z-)
-// If BLtouch with 1 or 2 endstop z, connect BLTouch on PE6 pin (MT_DET2)
+// If BLtouch with 1 or 2 endstop z, connect BLTouch on PE6 pin (MT_DET2) for Robin Nano v1.2
 #define BLTOUCH_GENUINE  // Comment if you use a clone 3DTouch v3.2 with inverted logic for endstop
 
 
@@ -71,7 +71,7 @@
       #endif
 
 // ========================= DIRECT DRIVE =========================
-//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode, ex. for Diamond mount (not stock browden)
+//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode, ex. for Diamond mount (not stock bowden)
 
 
 //======================================================================================
@@ -192,7 +192,7 @@
  *
  * Advanced settings can be found in Configuration_adv.h
  */										
-#define CONFIGURATION_H_VERSION 02000905
+
 
 //===========================================================================
 //============================= Getting Started =============================
