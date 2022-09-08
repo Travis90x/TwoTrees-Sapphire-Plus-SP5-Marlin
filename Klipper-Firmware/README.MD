@@ -4,7 +4,8 @@ https://github.com/Travis90x/TwoTrees-Sapphire-Plus-SP5/wiki/Klipper
 
 # Klipper ADXL345 with RP4020 Zero or Robin Nano
 
-Copy scripts in your ~/klipper/scripts/ folder  (ex. /home/pi/klipper/scripts/)
+Copy scripts in your ~/klipper/scripts/ folder  (ex. /home/pi/klipper/scripts/).
+In one click, it generates resutls of the last tests with ADXL345, ignoring old tests, but move all the files in a folder that you can see directly in klipper.
 
 generate-belt-tension-graph.sh
 
