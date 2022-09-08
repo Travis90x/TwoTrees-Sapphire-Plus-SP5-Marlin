@@ -19,7 +19,7 @@ If use BLTouch without endstops z, connect BL Touch to ZMIM PA11 pin (Z-)
 If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2)
 
 #define SapphirePlusVariant *
-/** CHOOSE YOUR SAPPHIRE PLUS VARIANT
+ * CHOOSE YOUR SAPPHIRE PLUS VARIANT
  * 1: 	X tmc2208, Y tmc2208, E a4988, 	 single Z a4988
  * 10:  X tmc2208, Y tmc2208, E a4988, 	 dual 	Z a4988
  * 11:	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988
@@ -31,7 +31,7 @@ If use BLtouch with 1 or 2 endstop z, connect BL Touch on PE6 pin (MT_DET2)
  * 6: 	X tmc2208, Y tmc2208, E tmc2208, dual 	Z a4988
  * 7: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2225
  * 8: 	X tmc2209, Y tmc2209, E tmc2209, dual 	Z tmc2209
- */
+
  
 #define SAPPHIRE_PLUS_TMC_UART           
 // 2209 UART addresses: 4 steppers with 1 dire on PIN PA9 (X,Y,Z,Z2) 1 stepper on PA10 (E0)
