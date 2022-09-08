@@ -20,4 +20,5 @@ fi
 ## Keep the last one png
 ~/klipper/scripts/calibrate_shaper.py $NEWX -o /home/pi/klipper_config/input_shaper/resonances_x.png
 
+## Clean TMP folder and let you see all files from klipper
 mv /tmp/resonances_x_* /home/pi/klipper_config/input_shaper/
