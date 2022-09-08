@@ -5,7 +5,6 @@ https://github.com/Travis90x/TwoTrees-Sapphire-Plus-SP5/wiki/Klipper
 # Klipper ADXL345 with RP4020 Zero or Robin Nano
 
 Copy scripts in your ~/klipper/scripts/ folder  (ex. /home/pi/klipper/scripts/).
-In one click, it generates resutls of the last tests with ADXL345, ignoring old tests, but move all the files in a folder that you can see directly in klipper.
 
 generate-belt-tension-graph.sh
 
@@ -33,8 +32,8 @@ is needed for TEST_RESONANCES AXIS  and calibrate  input_shaper
 Important: with ACCELEROMETER_QUERY and similar, only on the first time you will got an error, so retry the test.
 
 ### Shell_command.cfg
-is needed for consulting png result resonance test 
-directly from Klipper/Mainsail/Fluidd
+It is needed for consulting png result resonance.
+In one click, it generates resutls of the last tests with ADXL345, ignoring old tests, but move all the files in a folder that you can see directly in Klipper (Mainsail).
 
 ![Macro](https://dub01pap001files.storage.live.com/y4me3X9sHo0mlxEPl14J44P0kUcC9DutL3y4LBRyJYCaCwRD00IB1aLeXp1I73yg-vymvh9_WSyMV2jhT8UUz2gXLod1gejmHUPvg4TBsDVluEyL-Os4_4RZgJLtRIl8uwEnCDGO5upZpTI9LIc72pZx468lNts_QtMfPML8cIZgTz8rHgyRXyxV-svl3gNb4HG?width=1642&height=955&cropmode=none)
 
