@@ -19,11 +19,11 @@ Copy .cfg files in your /home/pi/klipper_config/
 ### printer.cfg
 Edit your printer.cfg and add
 
-[include pico.cfg]
+[include ADXL_RP2040.cfg]
 
 [include shell_command.cfg]
 
-### Pico.cfg
+### ADXL_RP2040.cfg
 is needed for ADXL345 with RP4020 (a clone of Raspberry Pi Pico)
 as a secondary MCU (usb connected, ex. to Android TV Box with Armbian)
 or for ADXL345 connected to Robin Nano v1.2 SDcard pins
