@@ -11,5 +11,6 @@ if [ ! -d "${outdir}" ]; then
 fi
 
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /home/pi/klipper_config/input_shaper/resonances.png
+
 ## Clean TMP folder and let you see all files from klipper
 mv /tmp/raw_data_axis* "${outdir}"
