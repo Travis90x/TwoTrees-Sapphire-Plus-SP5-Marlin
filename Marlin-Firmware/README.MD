@@ -1,5 +1,3 @@
-# WORK IN PROGRESS, not use files for now
-
 # Marlin Firmware 2.1.x (bugfix) for TwoTrees Sapphire Plus SP5 
 
 This is a non-offical project. 
