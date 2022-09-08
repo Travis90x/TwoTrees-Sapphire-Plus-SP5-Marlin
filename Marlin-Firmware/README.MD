@@ -1,4 +1,5 @@
-# Marlin Firmware - Select above the branch 2.0.x or 2.1.x (bugfix) for TwoTrees Sapphire Plus SP5 
+# Marlin Firmware
+## click above on "default" and select the branch 2.0.x or 2.1.x (bugfix) for TwoTrees Sapphire Plus SP5 
 
 This is a non-offical project. 
 This repo contains one preconfigured Marlin 2.0.x bugifix fimrware versions for 3D-Printer "TwoTrees Sapphire Plus or SP5".
