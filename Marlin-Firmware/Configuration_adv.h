@@ -2,6 +2,8 @@
  * Marlin 3D Printer Firmware
  * Copyright (c) 2022 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
+ * Last changes 2022-09-09 00:28
+ *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
  *
@@ -988,7 +990,7 @@
   // If not defined, probe limits will be used.
   // Override with 'M422 S<index> X<pos> Y<pos>'
 
-  #define Z_STEPPER_ALIGN_XY { { 20, 150 }, { 150, 150 }, { 280, 150 } }
+  #define Z_STEPPER_ALIGN_XY { { 20, 150 }, { 280, 150 } }
 
   /**
    * Orientation for the automatically-calculated probe positions.
