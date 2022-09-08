@@ -26,16 +26,13 @@
  */
 #pragma once
 
-  
+#define CONFIGURATION_H_VERSION 02010200
 
 //#define CONFIG_EXAMPLES_DIR "Two Trees/Sapphire Plus/Sapphire Plus V2"
 
 //===========================================================================
 //=== UI == Rotate Screen == BL_TOUCH == Mosfet == AutoFAN == Direct Drive ==
 //===========================================================================
-
-
-
 
 //#define SAPPHIRE_PLUS_MKS_UI   // classic UI of TwoTrees - ATTENTION: copy assets folder into root sdcard
 
@@ -48,9 +45,8 @@
 #define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
      
 // If BLTouch without endstops z, connect BLTouch to ZMIM PA11 pin (Z-)
-// If BLtouch with 1 or 2 endstop z, connect BLTouch on PE6 pin (MT_DET2)
+// If BLtouch with 1 or 2 endstop z, connect BLTouch on PE6 pin (MT_DET2) for Robin Nano v1.2
 #define BLTOUCH_GENUINE  // Comment if you use a clone 3DTouch v3.2 with inverted logic for endstop
-
 
 #define GRIDMAX_POINTS 3  // Points for Bed leveling mesh: 3,4,5.... grid points to test the mesh with bltouch: grid 5 = 5x5, so 25 probe points
 
@@ -71,14 +67,14 @@
       #endif
 
 // ========================= DIRECT DRIVE =========================
-//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode, ex. for Diamond mount (not stock browden)
+//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode, ex. for Diamond mount (not stock bowden)
 
 
 //======================================================================================
 //== ENDSTOPS == STEPPER DRIVERS == UART == WIFI == LINEAR_ADVANCE == FILAMENT SENSOR ==
 //======================================================================================
 
-#define z_endstop_qty 1  //how many endstop on Z
+#define z_endstop_qty 1  //how many endstop switch on Z
      #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
       #if z_endstop_qty > 0
           #define BLTOUCH_WITH_ENDSTOPS           
@@ -192,7 +188,7 @@
  *
  * Advanced settings can be found in Configuration_adv.h
  */										
-#define CONFIGURATION_H_VERSION 02010200
+
 
 //===========================================================================
 //============================= Getting Started =============================
