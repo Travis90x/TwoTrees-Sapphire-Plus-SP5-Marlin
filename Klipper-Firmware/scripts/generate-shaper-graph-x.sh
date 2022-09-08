@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x #echo on
+## set -x #echo on # don't activate if use script in klipper
 set -u  pipefail
 
 # Take last files
