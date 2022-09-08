@@ -2,7 +2,7 @@
  * Marlin build for TwoTrees Sapphire Plus with stock hardware
  * Every changed settings could be find by searching for
  * 
- * Last changes 2022-09-04 18:22
+ * Last changes 2022-09-09 00:28
  *
  * Marlin 3D Printer Firmware
  * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
@@ -1318,7 +1318,7 @@
 //#define USE_YMIN_PLUG
 
 #if z_endstop_qty > 0
-    #define USE_ZMIN_PLUGN    // Z1 endstop (Left side) on PA11
+    #define USE_ZMIN_PLUG    // Z1 endstop (Left side) on PA11
 #elif ENABLED(SAPPHIRE_PLUS_BLTOUCH)
     #define USE_ZMIN_PLUG     // BLTouch as endstop, without phisical endtops Z
 #endif
@@ -1366,8 +1366,11 @@
   //#define ENDSTOPPULLUP_UMAX
   //#define ENDSTOPPULLUP_VMAX
   //#define ENDSTOPPULLUP_WMAX
-  #if ENABLED(SAPPHIRE_PLUS_BLTOUCH) && DISABLED(BLTOUCH_WITH_ENDSTOPS)
+  #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
     #define ENDSTOPPULLUP_ZMIN_PROBE
+  #endif
+  #if z_endstop_qty > 0
+    #define ENDSTOPPULLUP_XMIN
   #endif
 #endif
 
