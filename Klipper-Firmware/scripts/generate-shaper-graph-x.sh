@@ -15,7 +15,7 @@ if [ ! -d "${outdir}" ]; then
 fi
 
 ## File renamed with Date
-#~/klipper/scripts/calibrate_shaper.py $NEWX -o /home/pi/klipper_config/input_shaper/resonances_x_$DATE.png
+## ~/klipper/scripts/calibrate_shaper.py $NEWX -o /home/pi/klipper_config/input_shaper/resonances_x_$DATE.png
 
 ## Keep the last one png
 ~/klipper/scripts/calibrate_shaper.py $NEWX -o /home/pi/klipper_config/input_shaper/resonances_x.png
