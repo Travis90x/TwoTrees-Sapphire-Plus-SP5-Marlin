@@ -24,7 +24,7 @@ Edit your printer.cfg and add
 [include shell_command.cfg]
 
 ### ADXL_RP2040.cfg
-is needed for ADXL345 with RP4020 (a clone of Raspberry Pi Pico)
+is needed for ADXL345 with RP2040 (a clone of Raspberry Pi Pico)
 as a secondary MCU (usb connected, ex. to Android TV Box with Armbian)
 or for ADXL345 connected to Robin Nano v1.2 SDcard pins
 is needed for TEST_RESONANCES AXIS  and calibrate  input_shaper
