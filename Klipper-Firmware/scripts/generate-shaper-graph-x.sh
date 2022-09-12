@@ -9,7 +9,6 @@ ALLCSV=/tmp/resonances_x_*.csv
 
 DATE=$(date +'%Y-%m-%d-%H%M%S')
 
-
 OUTDIR=~/klipper_config/input_shaper/
  if [ ! -d "${OUTDIR}" ]; then
     mkdir "${OUTDIR}"
