@@ -10,7 +10,7 @@ ALLCSV=/tmp/resonances_x_*.csv
 DATE=$(date +'%Y-%m-%d-%H%M%S')
 
 
-OUTDIR=~/klipper_config/input_shaper
+OUTDIR=~/klipper_config/input_shaper/
  if [ ! -d "${OUTDIR}" ]; then
     mkdir "${OUTDIR}"
     ## Edit below with your username
@@ -25,6 +25,6 @@ chown $USER:$USER ~/klipper/scripts/
 ## Replace old png
 cp "${OUTDIR}/shaper_calibrate_x_$DATE.png" "${OUTDIR}/1_shaper_calibrate_x.png"
 
-mv /tmp/resonances_x_*.csv ~/klipper_config/input_shaper/
+mv /tmp/resonances_x_*.csv "${OUTDIR}"
 
 mv $ALLCSV "$OUTDIR"
