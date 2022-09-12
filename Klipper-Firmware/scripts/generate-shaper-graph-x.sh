@@ -25,6 +25,6 @@ chown $USER:$USER ~/klipper/scripts/
 ## Replace old png
 cp "${OUTDIR}/shaper_calibrate_x_$DATE.png" "${OUTDIR}/1_shaper_calibrate_x.png"
 
-mv /tmp/resonances_x_*.csv "${OUTDIR}"
+mv /tmp/resonances_x_*.csv "${OUTDIR}" > /dev/null 2>&1
 
-mv $ALLCSV "$OUTDIR"
+mv $ALLCSV "$OUTDIR" > /dev/null 2>&1
