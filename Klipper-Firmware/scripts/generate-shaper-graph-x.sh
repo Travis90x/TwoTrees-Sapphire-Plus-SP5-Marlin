@@ -9,13 +9,14 @@ ALLCSV=/tmp/resonances_x_*.csv
 
 DATE=$(date +'%Y-%m-%d-%H%M%S')
 
-OUTDIR=/home/pi/klipper_config/input_shaper
 
+OUTDIR=~/klipper_config/input_shaper
  if [ ! -d "${OUTDIR}" ]; then
     mkdir "${OUTDIR}"
     ## Edit below with your username
-    chown pi:pi "${OUTDIR}" 
+    chown $USER:$USER "${OUTDIR}" 
 fi
+chown $USER:$USER ~/klipper/scripts/
 
 
 ## File renamed with date from last two CSV files
@@ -24,6 +25,6 @@ fi
 ## Replace old png
 cp "${OUTDIR}/shaper_calibrate_x_$DATE.png" "${OUTDIR}/1_shaper_calibrate_x.png"
 
-mv /tmp/resonances_x_*.csv /home/pi/klipper_config/input_shaper/
+mv /tmp/resonances_x_*.csv ~/klipper_config/input_shaper/
 
 mv $ALLCSV "$OUTDIR"
