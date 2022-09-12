@@ -33,5 +33,5 @@ chown $USER:$USER ~/klipper/scripts/
 cp "${OUTDIR}/resonances_$DATE.png" "${OUTDIR}/0_resonances.png"
 
 ## Clean TMP folder and let you see all files from klipper
-rm /tmp/File_raw_data*.csv
-mv $ALLCSV "$OUTDIR"
+rm /tmp/File_raw_data*.csv > /dev/null 2>&1
+mv $ALLCSV "$OUTDIR" > /dev/null 2>&1
