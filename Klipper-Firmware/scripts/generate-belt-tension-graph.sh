@@ -6,12 +6,12 @@
 ## Time to write the files of the tests
 
 # Take last files
-FILE1=$(ls -Art /tmp/raw_data_axis=1.000,*.csv | tail -n 1)
-FILE2=$(ls -Art /tmp/raw_data_axis=1.000,-1*.csv | tail -n 1)
+BELTX=$(ls -Art /tmp/raw_data_axis=1.000,*.csv | tail -n 1)
+BELTY=$(ls -Art /tmp/raw_data_axis=1.000,-1*.csv | tail -n 1)
 
 rm /tmp/File_raw_data*.csv > /dev/null 2>&1
-cp "$FILE1" /tmp/File_raw_data1.csv
-cp "$FILE2" /tmp/File_raw_data2.csv
+cp "$BELTX" /tmp/File_raw_data1.csv
+cp "$BELTY" /tmp/File_raw_data2.csv
 
 ALLCSV=/tmp/raw_data_axis*.csv
 
