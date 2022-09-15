@@ -6,7 +6,7 @@
 ## Time to write the files of the tests
 
 # Take last files
-BELTX=$(ls -Art /tmp/raw_data_axis=1.000,*.csv | tail -n 1)
+BELTX=$(ls -Art /tmp/raw_data_axis=1.000,1*.csv | tail -n 1)
 BELTY=$(ls -Art /tmp/raw_data_axis=1.000,-1*.csv | tail -n 1)
 
 rm /tmp/File_raw_data*.csv > /dev/null 2>&1
