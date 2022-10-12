@@ -23,6 +23,9 @@ Edit your printer.cfg and add
 
 [include shell_command.cfg]
 
+### printer.cfg by Giuseppe Di Resta
+https://github.com/pappicio/klipper_config
+
 ### ADXL345.cfg
 is needed for ADXL345 with RP4020 (a clone of Raspberry Pi Pico)
 as a secondary MCU (usb connected, ex. to Android TV Box with Armbian)
