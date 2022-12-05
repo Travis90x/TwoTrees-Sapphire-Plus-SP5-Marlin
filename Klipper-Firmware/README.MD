@@ -1,3 +1,10 @@
+## ALERT! Read carefully the commented code because
+my Sapphire Plus is modded with 
+Diamond Mount + Sherpa Mini + Moon's Motor, Optical Endstops on X Y 2xZ, 
+on Robin Nano v1.2 the TMC2209x5 in UART are in this order: X Y E Z1 Z2;
+the endstops pins on the board are for Z Endstops and BLTouch,
+and other mods are written in the code, like RP2040 for input shaping, webcam etc etc...
+
 # WIKI - Klipper for TwoTrees Sapphire Plus SP5
 
 https://github.com/Travis90x/TwoTrees-Sapphire-Plus-SP5/wiki/Klipper
