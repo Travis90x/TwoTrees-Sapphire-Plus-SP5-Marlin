@@ -2,6 +2,7 @@
 ## set -x #echo on # don't activate if use script in klipper
 # set -u  pipefail
 # INPUT SHAPING Y
+# COPY THIS FILE IN /HOME/PI/KLIPPER/SCRIPT/
 
 # Take last files
 FILENAME=$(ls -Art /tmp/resonances_y_*.csv | tail -n 1)
