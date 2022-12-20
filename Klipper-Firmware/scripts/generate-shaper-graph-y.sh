@@ -1,6 +1,7 @@
 #!/bin/bash
 ## set -x #echo on # don't activate if use script in klipper
-set -u  pipefail
+# set -u  pipefail
+# INPUT SHAPING Y
 
 # Take last files
 FILENAME=$(ls -Art /tmp/resonances_y_*.csv | tail -n 1)
@@ -9,10 +10,9 @@ ALLCSV=/tmp/resonances_y_*.csv
 
 DATE=$(date +'%Y-%m-%d-%H%M%S')
 
-OUTDIR=~/klipper_config/input_shaper/
+OUTDIR=~/printer_data/config/input_shaper/
  if [ ! -d "${OUTDIR}" ]; then
     mkdir "${OUTDIR}"
-    ## Edit below with your username
     chown $USER:$USER "${OUTDIR}" 
 fi
 chown $USER:$USER ~/klipper/scripts/
