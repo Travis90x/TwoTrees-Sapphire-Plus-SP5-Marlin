@@ -1,7 +1,8 @@
 #!/bin/bash
 ## set -x #echo on # don't activate if use script in klipper
 # set -e -u -o pipefail
-# CINGHIE SINGOLE
+# RESONANCE SINGLE BELTS
+# COPY THIS FILE IN /HOME/PI/KLIPPER/SCRIPT/
 
 # sleep 3
 ## Time to write the files of the tests
