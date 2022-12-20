@@ -18,7 +18,7 @@ ALLCSV=/tmp/raw_data_axis*.csv
 
 DATE=$(date +'%Y-%m-%d-%H%M%S')
  
-OUTDIR=~/printer_data/config/input_shaper/
+OUTDIR=~/printer_data/config/input_shaper
  if [ ! -d "${OUTDIR}" ]; then
     mkdir "${OUTDIR}"
     chown $USER:$USER "${OUTDIR}" 
@@ -30,8 +30,8 @@ chown $USER:$USER ~/klipper/scripts/
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/File_raw_data*.csv -o "${OUTDIR}/belts_$DATE.png"
 
 ## Replace old png
-cp "${OUTDIR}/resonances_$DATE.png" "${OUTDIR}/0_belts.png"
+cp "${OUTDIR}/belts_$DATE.png" "${OUTDIR}/0_belts.png"
 
 ## Clean TMP folder and let you see all files from klipper
 rm /tmp/File_raw_data*.csv > /dev/null 2>&1
-mv $ALLCSV "$OUTDIR" > /dev/null 2>&1
+mv $ALLCSV "${OUTDIR}/" > /dev/null 2>&1
