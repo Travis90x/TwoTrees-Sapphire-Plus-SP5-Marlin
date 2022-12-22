@@ -103,11 +103,10 @@
  */
 
 // ======================= UART MODE ====================
-// Don't use suffix "_STANDALONE" for TMC2XXX in the configuration above
-// instradamento, define this
-//#define SAPPHIRE_PLUS_TMC_UART          
-    // Enable UART for addresses TMC2209/2226: 1 wire for 4x steppers on PIN PA9 (X,Y,Z,Z2), 1 wire for 1x stepper on PA10 (E0)
+// Don't use suffix "_STANDALONE" for TMC2XXX in the configuration above, instead uncomment the follow:
 
+//#define SAPPHIRE_PLUS_TMC_UART          
+// Enable UART for addresses TMC2209/2226: 1 wire for 4x steppers on PIN PA9 (X,Y,Z,Z2), 1 wire for 1x stepper on PA10 (E0)
 
 //#define SAPPHIRE_PLUS_TMC_UART_DIRECT
 /** UART for TMC2208/2225: each stepper driver needs a single wire for a single PIN on the board
