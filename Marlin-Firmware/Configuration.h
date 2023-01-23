@@ -2,7 +2,7 @@
  * Marlin build for TwoTrees Sapphire Plus with stock hardware
  * Every changed settings could be find by searching for
  * 
- * Last changes 2023-01-23 22:00
+ * Last changes 2023-01-23 23:00
  * Giuseppe Di Resta & Travis90x
  * Marlin 3D Printer Firmware
  * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
@@ -212,7 +212,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "Marlin 2.1.x bugfix" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "Marlin 2.1.2" // Who made the changes.
 
 // Name displayed in the LCD "Ready" message and Info menu
 #define CUSTOM_MACHINE_NAME "Sapphire Plus"
