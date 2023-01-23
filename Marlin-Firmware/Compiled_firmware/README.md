@@ -1,6 +1,7 @@
 # Firmware 1
 
 * Marlin V 2.0.9.5 Color_UI 
+* LANGUAGE IT (Italian)
 * ROTATED SCREEN 180
 * NO BL Touch AUTOFAN on Hot-End 1 PIN PB0 => 50° 
 * DIRECT DRIVE
@@ -15,6 +16,7 @@
 # Firmware 2
 
 * Marlin V 2.0.9.5 - MKS UI LVGL
+* LANGUAGE IT (Italian)
 * ROTATED SCREEN 180
 * NO BL Touch
 * AUTOFAN on Hot-End 1 PIN PB0 => 50°
