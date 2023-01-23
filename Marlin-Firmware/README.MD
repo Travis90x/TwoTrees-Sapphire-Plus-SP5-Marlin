@@ -1,4 +1,5 @@
-# Marlin Firmware 2.0.x (last update 2.0.9.5) for TwoTrees Sapphire Plus SP5 
+# Marlin Firmware 2.0.x (last update 2.0.9.5) 
+# for TwoTrees Sapphire Plus SP5 
 
 This is a non-offical project. 
 This repo contains one preconfigured Marlin 2.0.x stable firmware version for 3D-Printer "TwoTrees Sapphire Plus or SP5".
