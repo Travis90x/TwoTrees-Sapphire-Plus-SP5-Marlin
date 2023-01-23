@@ -1,6 +1,7 @@
 # Firmware 1
 
 * Marlin V 2.1.3 bugfix - Color_UI
+* LANGUAGE IT (Italian)
 * ROTATED SCREEN 180
 * NO BL Touch
 * AUTOFAN on Hot-End 1 PIN PB0 => 50°
@@ -17,6 +18,7 @@
 # Firmware 2
 
 * Marlin V 2.1.2 - MKS UI LVGL
+* LANGUAGE IT (Italian)
 * ROTATED SCREEN 180
 * NO BL Touch
 * AUTOFAN on Hot-End 1 PIN PB0 => 50°
