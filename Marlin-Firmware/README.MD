@@ -8,8 +8,12 @@ There are several different revisions of this printer, so you have to choose you
 
 If you have a Stock Variant of Sapphire, you have to edit only few settings.
 
+##Language
 #define LCD_LANGUAGE XX  (en for english)
 
+Default LCD_LANGUAGE is italian
+
+## Sapphire Variant
 You have to choose Sapphire Variant (according to your stepper drivers configuration)
 
 Configure z_endstop_qty if you use 0, 1 or 2 physics Z endstops
