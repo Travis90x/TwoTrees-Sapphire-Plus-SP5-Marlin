@@ -41,13 +41,15 @@ If errors occurs, follow Phase 1 and 2.
 
 
 # MKS LVGL UI
-Not working with Marlin 2.1.x or last versions of Marlin 2.0.x
 
-So use Marlin COLOR UI
+If you compile with #define SAPPHIRE_PLUS_MKS_UI
+
+Enter in Marlin-X.X.X\.pio\build\mks_robin_nano35
+Copy "assets" folder in the sdcard with robin_nano35.bin
 
 ![](https://github.com/makerbase-mks/Mks-Robin-Nano-Marlin2.0-Firmware/blob/master/Images/MKS_Robin_Nano_printing.png)
 
-Copy assets folder in the sdcard with robin_nano35.bin
+
 
 https://github.com/makerbase-mks/Mks-Robin-Nano-Marlin2.0-Firmware/tree/master/Firmware/assets
 https://github.com/makerbase-mks/Mks-Robin-Nano-Marlin2.0-Firmware/archive/master.zip
