@@ -1,9 +1,7 @@
 # Firmware 1
 
 Marlin V 2.1.3 bugfix - Color_UI
-
 ROTATED SCREEN 180
-
 NO BL Touch
 
 AUTOFAN on Hot-End 1 PIN PB0 => 50°
