@@ -24,7 +24,8 @@ reflash the firmware: try to reflash al least 2 times.
 In issues persist with calibration display, repeat Phase 1.
 
 
-After entering in the menu, initialize the new firmware with this commands:
+## Initialize Firmware
+After entering in the Marlinmenu, initialize the new firmware with this commands:
 
 Initialize EEPROM
 
