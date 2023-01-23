@@ -434,7 +434,7 @@
 #define AUTOTEMP
 #if ENABLED(AUTOTEMP)
   #define AUTOTEMP_OLDWEIGHT    0.98  // Factor used to weight previous readings (0.0 < value < 1.0)
-  #define AUTOTEMP_MIN          210  // Need from Marlin 2.1.3 bugfix
+  #define AUTOTEMP_MIN          210  // Needed from Marlin 2.1.3 bugfix
   #define AUTOTEMP_MAX          250
   #define AUTOTEMP_FACTOR       0.1f
 
