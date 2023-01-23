@@ -9,7 +9,7 @@ There are several different revisions of this printer, so you have to choose you
 
 # ISSUES ON FIRST BOOT AFTER FLASH MARLIN FIRMWARE
 
-After the flash of an updated Marlin firmware, the LCD Display may not work or the calibration setting is stuck.
+After the flash of an updated Marlin firmware, the LCD Display may not work or the initial touchscreen calibration setting is stuck.
 
 ## Phase 1
 In this case, remove SDcard, unplug the power cord, wait 10 seconds, replug power cord and turn on the printer.
