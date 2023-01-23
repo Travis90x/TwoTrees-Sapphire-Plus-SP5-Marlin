@@ -2,7 +2,7 @@
  * Marlin 3D Printer Firmware
  * Copyright (c) 2022 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  * 
- * Last changes 2023-01-23 18:30
+ * Last changes 2023-01-23 22:00
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -34,7 +34,7 @@
  *
  * Basic settings can be found in Configuration.h
  */
-#define CONFIGURATION_ADV_H_VERSION 02010300
+#define CONFIGURATION_ADV_H_VERSION 02010200
 
 //===========================================================================
 //============================= Thermal Settings ============================
@@ -983,7 +983,7 @@
  * Add the G34 command to align multiple Z steppers using a bed probe.
  */
 
-#if DISABLED (SAPPHIRE_PRO)
+#if DISABLED(SAPPHIRE_PRO)
   #if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
     #define Z_STEPPER_AUTO_ALIGN
   #endif
@@ -1558,7 +1558,7 @@
    * an option on the LCD screen to continue the print from the last-known
    * point in the file.
    */
-  #if ENABLED (SAPPHIRE_PLUS_POWERLOSSRECOVERY)
+  #if ENABLED(SAPPHIRE_PLUS_POWERLOSSRECOVERY)
     #define POWER_LOSS_RECOVERY
   #endif
   
@@ -2122,7 +2122,7 @@
  * See https://marlinfw.org/docs/features/lin_advance.html for full instructions.
  */
  
- #if ENABLED (LINEAR_ADVANCE)
+ #if ENABLED(LINEAR_ADVANCE)
   #define LIN_ADVANCE
  #endif
 
@@ -2206,7 +2206,7 @@
  * Repeatedly attempt G29 leveling until it succeeds.
  * Stop after G29_MAX_RETRIES attempts.
  */
-#if ENABLED (SAPPHIRE_PLUS_BLTOUCH)
+#if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
   #define G29_RETRY_AND_RECOVER
 #else
   //#define G29_RETRY_AND_RECOVER
@@ -2657,13 +2657,13 @@
 
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
 
-  #if ENABLED (SAPPHIRE_PLUS_DIRECTDRIVE)
+  #if ENABLED(SAPPHIRE_PLUS_DIRECTDRIVE)
     #define PAUSE_PARK_RETRACT_FEEDRATE         30  // (mm/s) Initial retract feedrate.
     #else
     #define PAUSE_PARK_RETRACT_FEEDRATE         60  // (mm/s) Initial retract feedrate.
   #endif
 
-  #if ENABLED (SAPPHIRE_PLUS_DIRECTDRIVE)
+  #if ENABLED(SAPPHIRE_PLUS_DIRECTDRIVE)
     #define PAUSE_PARK_RETRACT_LENGTH            5  // (mm) Initial retract.
     #else
     #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
@@ -2718,13 +2718,13 @@
     #define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
     //#define FILAMENT_UNLOAD_ALL_EXTRUDERS         // Allow M702 to unload all extruders above a minimum target temp (as set by M302)
 #else
-  #if ENABLED (SAPPHIRE_PLUS_DIRECTDRIVE)
+  #if ENABLED(SAPPHIRE_PLUS_DIRECTDRIVE)
     #define PAUSE_PARK_RETRACT_FEEDRATE         30  // (mm/s) Initial retract feedrate.
     #else
     #define PAUSE_PARK_RETRACT_FEEDRATE         60  // (mm/s) Initial retract feedrate.
   #endif
 
-  #if ENABLED (SAPPHIRE_PLUS_DIRECTDRIVE)
+  #if ENABLED(SAPPHIRE_PLUS_DIRECTDRIVE)
     #define PAUSE_PARK_RETRACT_LENGTH            5  // (mm) Initial retract.
     #else
     #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
@@ -4467,7 +4467,7 @@
  * Adds capability to work with any adjustable current drivers.
  * Implemented as G34 because M915 is deprecated.
  */
-#if ENABLED (SEPARATED_Z_MOTORS)          
+#if ENABLED(SEPARATED_Z_MOTORS)          
     #if EITHER(Z_MULTI_ENDSTOPS,Z_STEPPER_AUTO_ALIGN)                  
     //cannot be used with Z_STEPPER_AUTO_ALIGN or with Z_MULTI_ENDSTOPS.
 
