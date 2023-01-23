@@ -1370,7 +1370,10 @@
     #define ENDSTOPPULLUP_ZMIN_PROBE
   #endif
   #if z_endstop_qty > 0
-    #define ENDSTOPPULLUP_XMIN
+    #define ENDSTOPPULLUP_ZMIN
+  #endif
+  #if z_endstop_qty > 1
+    #define ENDSTOPPULLUP_ZMAX
   #endif
 #endif
 
@@ -2071,7 +2074,7 @@
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0    // Centre printable area on the bed
 #define Y_MIN_POS 0
-#define Z_MIN_POS -3
+#define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 
