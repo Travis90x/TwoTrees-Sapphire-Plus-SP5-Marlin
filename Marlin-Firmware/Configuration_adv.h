@@ -1,8 +1,8 @@
 /**
  * Marlin 3D Printer Firmware
  * Copyright (c) 2022 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Last changes 2022-09-09 00:28
+ * 
+ * Last changes 2023-01-23 18:30
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
