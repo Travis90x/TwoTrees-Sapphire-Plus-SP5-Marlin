@@ -1,4 +1,4 @@
-# Marlin Firmware 2.1.x bugfix (2.1.1) for TwoTrees Sapphire Plus SP5 
+# Marlin Firmware 2.1.x bugfix (2.1.3) 23/01/2023 for TwoTrees Sapphire Plus SP5 
 
 This is a non-offical project. 
 This repo contains one preconfigured Marlin 2.1.x bugifix firmware version for 3D-Printer "TwoTrees Sapphire Plus or SP5".
