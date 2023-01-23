@@ -8,7 +8,7 @@ There are several different revisions of this printer, so you have to choose you
 
 If you have a Stock Variant of Sapphire, you have to edit only few settings.
 
-##Language
+## Language
 #define LCD_LANGUAGE XX  (en for english)
 
 Default LCD_LANGUAGE is italian
