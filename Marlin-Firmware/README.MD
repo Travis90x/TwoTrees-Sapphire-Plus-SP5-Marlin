@@ -40,3 +40,13 @@ Load Settings
 If errors occurs, follow Phase 1 and 2.
 
 
+# MKS LVGL UI
+
+![](https://github.com/makerbase-mks/Mks-Robin-Nano-Marlin2.0-Firmware/blob/master/Images/MKS_Robin_Nano_printing.png)
+
+Copy assets folder in the sdcard with robin_nano35.bin
+
+https://github.com/makerbase-mks/Mks-Robin-Nano-Marlin2.0-Firmware/tree/master/Firmware/assets
+https://github.com/makerbase-mks/Mks-Robin-Nano-Marlin2.0-Firmware/archive/master.zip
+
+https://github.com/makerbase-mks/LVGL-6.1.1-MKS/
