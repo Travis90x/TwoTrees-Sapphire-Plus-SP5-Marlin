@@ -41,6 +41,9 @@ If errors occurs, follow Phase 1 and 2.
 
 
 # MKS LVGL UI
+Not working with Marlin 2.1.x or last versions of Marlin 2.0.x
+
+So use Marlin COLOR UI
 
 ![](https://github.com/makerbase-mks/Mks-Robin-Nano-Marlin2.0-Firmware/blob/master/Images/MKS_Robin_Nano_printing.png)
 
