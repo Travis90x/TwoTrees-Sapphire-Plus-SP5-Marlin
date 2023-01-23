@@ -9,6 +9,7 @@ There are several different revisions of this printer, so you have to choose you
 If you have a Stock Variant of Sapphire, you have to edit only few settings.
 
 #define LCD_LANGUAGE XX  (en for english)
+## Default LCD_LANGUAGE is italian
 
 You have to choose Sapphire Variant (according to your stepper drivers configuration)
 
