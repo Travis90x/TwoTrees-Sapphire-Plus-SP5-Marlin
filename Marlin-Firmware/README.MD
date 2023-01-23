@@ -17,25 +17,23 @@ In this case, remove SDcard, unplug the power cord, wait 10 seconds, replug powe
 Try this at least 2 times.
 
 ## Phase 2
-If errors stll occurs, reconnect the sdcard to PC, rename the robin_nano35.cur in robin_nano35.bin and
+If errors stll occurs, reconnect the sdcard to PC, rename the Robin_nano35.cur in Robin_nano35.bin and
 
 reflash the firmware: try to reflash al least 2 times.
 
-In issues persist with calibration display, repeat Phase 1.
+In issues persist with touchscreen calibration, repeat Phase 1.
 
 
 ## Initialize Firmware
 After entering in the Marlinmenu, initialize the new firmware with this commands:
 
-Initialize EEPROM
+* Initialize EEPROM
 
 in Configuratio menu, page 2 (under Preheat PLA...)
 
-Restore Defaults
-
-Save Settings
-
-Load Settings
+* Restore Defaults
+* Save Settings
+* Load Settings
 
 If errors occurs, follow Phase 1 and 2.
 
@@ -45,6 +43,7 @@ If errors occurs, follow Phase 1 and 2.
 If you compile with #define SAPPHIRE_PLUS_MKS_UI
 
 Enter in Marlin-X.X.X\.pio\build\mks_robin_nano35
+
 Copy "assets" folder in the sdcard with robin_nano35.bin
 
 ![](https://github.com/makerbase-mks/Mks-Robin-Nano-Marlin2.0-Firmware/blob/master/Images/MKS_Robin_Nano_printing.png)
