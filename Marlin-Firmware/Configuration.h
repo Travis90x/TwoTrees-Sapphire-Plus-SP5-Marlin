@@ -26,7 +26,7 @@
  */
 #pragma once
 
-#define CONFIGURATION_H_VERSION 02010300
+#define CONFIGURATION_H_VERSION 02010200
 
 //#define CONFIG_EXAMPLES_DIR "Two Trees/Sapphire Plus/Sapphire Plus V2"
 
@@ -34,19 +34,19 @@
 //=== UI == Rotate Screen == BL_TOUCH == Mosfet == AutoFAN == Direct Drive ==
 //===========================================================================
 
-//#define SAPPHIRE_PLUS_MKS_UI   // classic UI of TwoTrees - ATTENTION: copy assets folder into root sdcard
+#define SAPPHIRE_PLUS_MKS_UI   // classic UI of TwoTrees - ATTENTION: copy assets folder into root sdcard
 
 #if DISABLED(SAPPHIRE_PLUS_MKS_UI)
   #define COLOR_BACKGROUND 0x0009 //LCD background color
 #endif
 
-//#define ROTATED_SCREEN //to rotate screen of 180 degrees if all shown upset! on TFT
+#define ROTATED_SCREEN //to rotate screen of 180 degrees if all shown upset! on TFT
 
-#define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
+// #define SAPPHIRE_PLUS_BLTOUCH           // Level sensor on Z endstop
      
 // If BLTouch without endstops z, connect BLTouch to ZMIM PA11 pin (Z-)
 // If BLtouch with 1 or 2 endstop z, connect BLTouch on PE6 pin (MT_DET2) for Robin Nano v1.2
-#define BLTOUCH_GENUINE  // Comment if you use a clone 3DTouch v3.2 with inverted logic for endstop
+// #define BLTOUCH_GENUINE  // Comment if you use a clone 3DTouch v3.2 with inverted logic for endstop
 
 #define GRIDMAX_POINTS 3  // Points for Bed leveling mesh: 3,4,5.... grid points to test the mesh with bltouch: grid 5 = 5x5, so 25 probe points
 
@@ -67,7 +67,7 @@
       #endif
 
 // ========================= DIRECT DRIVE =========================
-//#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode, ex. for Diamond mount (not stock bowden)
+#define SAPPHIRE_PLUS_DIRECTDRIVE         // Direct Drive Mode, ex. for Diamond mount (not stock bowden)
 
 
 //======================================================================================
@@ -150,14 +150,14 @@
 // =================== LINEAR ADVANCE ===================
 
 //#define LINEAR_ADVANCE  // Disable Stealthchop for TMC2208 Extruder in GCODE with "M569 S0 E"
-	#if ENABLED (LINEAR_ADVANCE)
+	#if ENABLED(LINEAR_ADVANCE)
 	#define K_VALUE 0.10
 	#endif
 
 
 // =================== FILAMENT RUNOUT ===================
 #define SAPPHIRE_PLUS_RUNOUT                // Filament Sensor
-  #if ENABLED (SAPPHIRE_PLUS_RUNOUT)
+  #if ENABLED(SAPPHIRE_PLUS_RUNOUT)
 //#define SAPPHIRE_PLUS_SMART_RUNOUT       // Filament Jam Detector
   #endif
 
@@ -907,13 +907,13 @@
  */
 #define PREVENT_LENGTHY_EXTRUDE
 
-#if ENABLED (SAPPHIRE_PLUS_DIRECTDRIVE)
+#if ENABLED(SAPPHIRE_PLUS_DIRECTDRIVE)
   #define EXTRUDE_MAXLENGTH 300 // DirecDrive
 #else
   #define EXTRUDE_MAXLENGTH 650 // Bowden
 #endif
 
-#if ENABLED (SAPPHIRE_PLUS_DIRECTDRIVE)
+#if ENABLED(SAPPHIRE_PLUS_DIRECTDRIVE)
     #define FILAMENT_CHANGE_UNLOAD_LENGTH      100  // (mm) The length of filament for a complete unload.
 #else
     #define FILAMENT_CHANGE_UNLOAD_LENGTH        5  // (mm) The length of filament for a complete unload.
@@ -1567,7 +1567,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#if DISABLED (LINEAR_ADVANCE)							 
+#if DISABLED(LINEAR_ADVANCE)							 
 #define S_CURVE_ACCELERATION
 #endif
 //===========================================================================
@@ -1585,7 +1585,7 @@
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
 
-#if ENABLED (SAPPHIRE_PLUS_BLTOUCH)
+#if ENABLED(SAPPHIRE_PLUS_BLTOUCH)
    #if DISABLED(BLTOUCH_WITH_ENDSTOPS)  
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN // Use BLTouch as endstop Z connected to ZMIN
     #define USE_PROBE_FOR_Z_HOMING
@@ -2057,7 +2057,7 @@
 // @section machine
 
 // The size of the print bed
-#if DISABLED (SAPPHIRE_PRO)
+#if DISABLED(SAPPHIRE_PRO)
   #define X_BED_SIZE 300
   #define Y_BED_SIZE 300
 #else
@@ -2073,7 +2073,7 @@
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 
-#if ENABLED (SAPPHIRE_PRO)
+#if ENABLED(SAPPHIRE_PRO)
   #define Z_MAX_POS TERN(SAPPHIRE_PLUS_BLTOUCH, 230, 235) // BLTouch needs clearance for homing
 #else
   #define Z_MAX_POS TERN(SAPPHIRE_PLUS_BLTOUCH, 330, 330) // BLTouch needs clearance for homing
@@ -3551,8 +3551,8 @@
 
 
 #if ENABLED(TFT_LVGL_UI) // verify
-  #if DISABLED (SAPPHIRE_PLUS_TMC_UART)
-    #if ENABLED (SAPPHIRE_PLUS_HAS_WIFI)
+  #if DISABLED(SAPPHIRE_PLUS_TMC_UART)
+    #if ENABLED(SAPPHIRE_PLUS_HAS_WIFI)
       #define MKS_WIFI_MODULE  // MKS WiFi module
 	  #endif
   #endif
