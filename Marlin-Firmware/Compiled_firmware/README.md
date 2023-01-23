@@ -1,6 +1,6 @@
 # Firmware 1
 
-Marlin V 2.0.9.5 - Color_UI
+Marlin V 2.1.3 bugfix - Color_UI
 
 ROTATED SCREEN 180
 
