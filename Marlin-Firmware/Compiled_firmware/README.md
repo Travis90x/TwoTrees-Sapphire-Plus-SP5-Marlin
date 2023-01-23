@@ -3,17 +3,11 @@
 Marlin V 2.1.3 bugfix - Color_UI
 ROTATED SCREEN 180
 NO BL Touch
-
 AUTOFAN on Hot-End 1 PIN PB0 => 50°
-
 DIRECT DRIVE
-
 Z Endstop quantity 1 (Z motors synced)
-
 Z_MIN_POS 0
-
 Sapphire Variant 44 (X tmc2225, Y tmc2225, E tmc2225, dual 	Z tmc2225)
-
 NOT UART (STANDALONE MODE)
 
 NO LINEAR ADVANCE
