@@ -20,9 +20,7 @@ DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 810 }
 # Firmware 2
 
 Marlin V 2.1.2 - MKS UI LVGL
-
 ROTATED SCREEN 180
-
 NO BL Touch
 
 AUTOFAN on Hot-End 1 PIN PB0 => 50°
