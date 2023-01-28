@@ -25,9 +25,26 @@
 # 1280 960 1280 720 
 # 1920x1080
 
-#camera_usb_options="-r 640x480 -f 5 -d /dev/video1 -q 10"
+# camera_usb_options="-r 640x480 -f 5 -d /dev/video1 -q 10"
 #
-camera_usb_options="-r 1920x1080 -f 5 -d /dev/v4l/by-id/usb-Sonix_Technology_Co.__Ltd._USB_2.0_Camera_SN0001-video-index0 -q 100"
+# camera_usb_options="-r 1920x1080 -f 5 -d /dev/video1 -q 100"
+camera_usb_options="-r 1920x1080 -f 5 -d /dev/v4l/by-id/usb-Sonix_Technology_Co.__Ltd._USB_2.0_Camera_SN0001-video-index0 -q 100 -ex 50"
+
+#  -ex 10 # manuale eposure
+# -br 20 # brightness
+# -co 30 # contrast
+
+# test with 
+# sudo service webcamd restart
+# sudo service webcamd status
+
+# find device -d
+# ls /dev/v4l/by-id/*
+# or
+# v4l2-ctl --list-devices
+
+# restore logs
+# sudo ln -s /var/log/webcamd.log /home/pi/printer_data/logs/webcamd.log
 
 ### Additional webcam devices known to cause problems with -f
 #
@@ -73,8 +90,8 @@ camera_usb_options="-r 1920x1080 -f 5 -d /dev/v4l/by-id/usb-Sonix_Technology_Co.
 #
 # Current working directory is the mjpg-streamer base directory.
 #
-#camera_http_webroot="./www-mainsail"
-#camera_http_options="-n"
+# camera_http_webroot="./www-mainsail"
+# camera_http_options="-n"
 
 ### EXPERIMENTAL
 # Support for different streamer types.
