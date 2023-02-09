@@ -171,7 +171,7 @@
 //== POWER LOSS == NEOPIXEL LED RGB ==
 //===========================================================================
 
-// UPS function
+// POWER LOSS RECOVERY
 	//#define SAPPHIRE_PLUS_POWERLOSSRECOVERY   // on PIN PA2
 
 // LED Strips RGB addressable
