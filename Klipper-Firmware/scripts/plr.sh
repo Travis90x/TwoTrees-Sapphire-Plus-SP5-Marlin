@@ -1,7 +1,6 @@
 #!/bin/bash
 ############################################
-# https://github.com/pappicio/plr-klipper/blob/my-branch/plr.sh
-SD_PATH=/home/pi/printer_data/gcodes
+SD_PATH=~/printer_data/gcodes
 ############################################
 
 cat ${SD_PATH}/${2} > /tmp/plrtmpA.$$
@@ -15,7 +14,7 @@ else
     sed -n '/;start copy/, /thumbnail end/ p' < /tmp/plrtmpA.$$ > ${SD_PATH}/plr.gcode
     echo ';' >> ${SD_PATH}/plr.gcode
     echo '' >> ${SD_PATH}/plr.gcode
-    echo 'M109 S200.0' >> ${SD_PATH}/plr.gcode
+    echo 'M109 S199.0' >> ${SD_PATH}/plr.gcode
     cat /tmp/plrtmpA.$$ | sed -e '1,/Z'${1}'/ d' | sed -ne '/ Z/,$ p' | grep -m 1 ' Z' | sed -ne 's/.* Z\([^ ]*\)/SET_KINEMATIC_POSITION Z=\1/p' >> ${SD_PATH}/plr.gcode    
 fi
 
