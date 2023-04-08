@@ -1,3 +1,6 @@
+- Rename the firmware as Robin_nano35.bin if the TFT Display is connected
+otherwhise, rename it Robin_nano43.bin
+
 # Marlin Firmware 2.0.x (updated to 2.0.9.5) 2023.01.23
 # for TwoTrees Sapphire Plus SP5 
 
